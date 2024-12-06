@@ -5,6 +5,8 @@ import cv2
 import numpy as np
 from PyQt5.QtGui import QPixmap
 class ImageViewer(QtCore.QObject):
+    smallest_size = None
+    instances = []
     def __init__(self, image_widget, ft_widget, combo_box):
         super().__init__()
         self.image_widget = image_widget
@@ -13,9 +15,11 @@ class ImageViewer(QtCore.QObject):
         self.ft_widget = ft_widget
         self.combo_box.currentIndexChanged.connect(self.on_combo_box_changed)
         self.image = None
+        self.size = None
+        ImageViewer.instances.append(self)
 
     def eventFilter(self, obj, event):
-        if obj.objectName() == "ImageWidget":  # Ensure it's the image widget
+        if obj == self.image_widget:  # Ensure it's the image widget
             if event.type() == QtCore.QEvent.MouseButtonDblClick:
                 if event.button() == QtCore.Qt.LeftButton:
                     print("Image double-clicked!")
@@ -45,16 +49,11 @@ class ImageViewer(QtCore.QObject):
                             self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
                         self.fourier = fourierComponents(self.image)
                         self.height, self.width = self.image.shape
-                        bytes_per_line = self.width
-
-                        q_image = QtGui.QImage(self.image.data, self.width, self.height, bytes_per_line, QtGui.QImage.Format_Grayscale8)
-
-                        pixmap = QPixmap.fromImage(q_image)
-                        self.image_widget.setPixmap(pixmap.scaled(
-                            self.image_widget.size(),
-                            QtCore.Qt.KeepAspectRatio,
-                            QtCore.Qt.SmoothTransformation
-                        ))
+                        self.size = (self.width, self.height)
+                        print(F"the image size before resizing is {self.size}")
+                        self.update_smallest_size()
+                        self.notify_all_instances()
+                        self.reDisplay_image()
                         print(f"i set the image")
 
 
@@ -82,6 +81,41 @@ class ImageViewer(QtCore.QObject):
                 QtCore.Qt.KeepAspectRatio,
                 QtCore.Qt.SmoothTransformation
             ))
+
+    def reDisplay_image(self):
+        if self.image is None:
+            print("No image to display.")
+            return
+        try:
+            q_image = QtGui.QImage(np.ascontiguousarray(self.image.data), self.size[0], self.size[1], self.size[0],
+                                   QtGui.QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+            self.image_widget.setPixmap(pixmap.scaled(
+                self.image_widget.size(),
+                QtCore.Qt.KeepAspectRatio,
+                QtCore.Qt.SmoothTransformation
+            ))
+        except Exception as e:
+            print(f"Error in reDisplay_image: {e}")
+    def update_smallest_size(self):
+        if ImageViewer.smallest_size is None:
+            ImageViewer.smallest_size = self.size
+        else:
+            if (self.size[0] < ImageViewer.smallest_size[0]) or (self.size[1] < ImageViewer.smallest_size[1]):
+                ImageViewer.smallest_size = self.size
+
+    def resize_to_smallest_image(self):
+        if ImageViewer.smallest_size is not None:
+            self.image = cv2.resize(self.image, ImageViewer.smallest_size, interpolation=cv2.INTER_AREA)
+            self.size = ImageViewer.smallest_size
+            print(f"after resizing is {self.size}")
+
+    def notify_all_instances(self):
+        for instance in ImageViewer.instances:
+            if instance.image is not None:
+                instance.resize_to_smallest_image()
+                instance.reDisplay_image()
+
 
 class fourierComponents(QtCore.QObject):
     def __init__(self, original_image):
@@ -126,18 +160,18 @@ class fourierComponents(QtCore.QObject):
 
     def get_ft_real(self):
         real = self.fourier_shift[:, :, 0]
-
-        # Clip outliers to a reasonable range
-        lower, upper = np.percentile(real, [2, 98])  # Clip to 2nd and 98th percentile
+        lower, upper = np.percentile(real, [2, 98])  # clip to remove outliers
         real_clipped = np.clip(real, lower, upper)
-
-        # Normalize to 0–255
         real_normalized = cv2.normalize(real_clipped, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8UC1)
         return real_normalized
 
     def get_ft_imaginary(self):
         imaginary = self.fourier_shift[:, :, 1]
-        imaginary_normalized = cv2.normalize(imaginary, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8UC1)
+        lower, upper = np.percentile(imaginary, [2, 98])
+        imaginary_clipped = np.clip(imaginary, lower, upper)
+        imaginary_transformed = np.log(np.abs(imaginary_clipped) + 1)
+        imaginary_normalized = cv2.normalize(imaginary_transformed, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8UC1)
+
         return imaginary_normalized
 
 
@@ -147,38 +181,61 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("ImageViewer")
-        self.setGeometry(100, 100, 600, 400)
+        self.setGeometry(300, 200, 1200, 600)
         central_widget = QtWidgets.QWidget(self)
         self.setCentralWidget(central_widget)
 
-        layout = QtWidgets.QVBoxLayout()
-        central_widget.setLayout(layout)
-    # image widget
-        self.image_widget = QtWidgets.QLabel("Double-click me!")
-        self.image_widget.setObjectName("ImageWidget")
-        self.image_widget.setAlignment(QtCore.Qt.AlignCenter)
-        self.image_widget.setStyleSheet("background-color: black;")
-        self.image_widget.setFixedSize(300, 200)
-        layout.addWidget(self.image_widget)
-    # fourier widget
-        self.ft_widget = QtWidgets.QLabel("fourier transform")
-        self.ft_widget.setStyleSheet("background-color: black;")
-        self.ft_widget.setFixedSize(300, 200)
-        self.ft_widget.setAlignment(QtCore.Qt.AlignCenter)
-        layout.addWidget(self.ft_widget)
-    # combo box
-        self.combo_box = QComboBox(self)
-        self.combo_box.addItem("None selection")
-        self.combo_box.addItem("Ft Magnitude")
-        self.combo_box.addItem("Ft phase")
-        self.combo_box.addItem("Ft imaginary")
-        self.combo_box.addItem("Ft real")
-        layout.addWidget(self.combo_box)
+        main_layout = QtWidgets.QVBoxLayout()
+        central_widget.setLayout(main_layout)
+        # horizontal layout for the image widget and for the ft and combo
+        self.image_ft_layout = QtWidgets.QHBoxLayout()
+        main_layout.addLayout(self.image_ft_layout)
 
-        # self.combo_boxcombo_box.currentIndexChanged.connect(self.onComboBoxChanged)
+        # creation of widgets
+        self.image_widgets = []
+        self.ft_widgets = []
+        self.combo_boxes = []
+        self.image_event_handlers = []
 
-        self.image_events_handler = ImageViewer(self.image_widget, self.ft_widget, self.combo_box)
-        self.image_widget.installEventFilter(self.image_events_handler)
+        for i in range(4):  # Create 4 sets of widgets
+            # vertical for each one
+            v_layout = QtWidgets.QVBoxLayout()
+
+            # image widget
+            image_widget = QtWidgets.QLabel("Double-click me!")
+            # image_widget.setObjectName(f"ImageWidget_{i}")
+            image_widget.setAlignment(QtCore.Qt.AlignCenter)
+            image_widget.setStyleSheet("background-color: black;")
+            image_widget.setFixedSize(300, 200)
+            v_layout.addWidget(image_widget)
+
+            # ft  widget
+            ft_widget = QtWidgets.QLabel("Fourier Transform")
+            ft_widget.setStyleSheet("background-color: black;")
+            ft_widget.setFixedSize(300, 200)
+            ft_widget.setAlignment(QtCore.Qt.AlignCenter)
+            v_layout.addWidget(ft_widget)
+
+            # combo box
+            combo_box = QComboBox(self)
+            combo_box.addItem("None selection")
+            combo_box.addItem("Ft Magnitude")
+            combo_box.addItem("Ft phase")
+            combo_box.addItem("Ft imaginary")
+            combo_box.addItem("Ft real")
+            v_layout.addWidget(combo_box)
+    # add the veritcal to the horizontal
+            self.image_ft_layout.addLayout(v_layout)
+
+            #append/s
+            self.image_widgets.append(image_widget)
+            self.ft_widgets.append(ft_widget)
+            self.combo_boxes.append(combo_box)
+
+            image_events_handler = ImageViewer(image_widget, ft_widget, combo_box)
+            self.image_event_handlers.append(image_events_handler)
+            image_widget.installEventFilter(image_events_handler)
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
