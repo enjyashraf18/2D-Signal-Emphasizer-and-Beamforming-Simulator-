@@ -35,7 +35,7 @@ class ImageViewer(QtCore.QObject):
                 try:
                     self.ft_widget.clear()
                     self.image_widget.clear()
-                    self.combo_box.currentText("None selection")
+                    self.combo_box.setCurrentIndex(0)
                     self.image = cv2.imread(self.image_file_path)
                     print("i have read the image ")
 
