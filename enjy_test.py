@@ -1,11 +1,60 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QWidget, QHBoxLayout, QFileDialog, QPushButton, QSlider, QLabel,
-                             QCheckBox, QComboBox)
+                             QCheckBox, QComboBox, QWidget)
 import cv2
 import numpy as np
 from PyQt5.QtGui import QPixmap
 import pyqtgraph as pg
+from PyQt5.QtCore import Qt
+from PIL import  Image, ImageEnhance
+
+
+class imageAdjuster(QWidget):
+    def __int__(self, image):
+        super().__init__()
+        self.image = image
+        self.original_image = image
+        self.brightness= 0
+        self.contrast =1.0
+        self.final_mouse_pos = None
+
+
+    def mouse_press_event(self, event):
+        if event.button()== Qt.LeftButton:
+            self.final_mouse_pos = event.pos()
+
+    def mouse_move_event(self, event):
+        if self.final_mouse_pos:
+            print(f"here is current pos {event.pos()}")
+            print(f"here is per pos {self.final_mouse_pos}")
+            change = self.final_mouse_pos - event.pos()
+            delta_x = -change.x()  # minus 3shan teb2a right to left (y3ni better direction)
+            delta_y = change.y()
+            print(f"here is delta y {delta_y}")
+            print(f"here is delta x {delta_x}")
+
+            self.brightness += delta_y
+            self.contrast += delta_x
+            print(f"here is b {self.brightness}")
+            print(f"here is c {self.contrast}")
+
+            self.final_mouse_pos = event.pos()
+
+    def mouse_release_event(self, event):
+        if event.button() ==Qt.LeftButton:
+            self.final_mouse_pos = None
+
+    def adjust_brightness(self):
+        brightness_enhancer = ImageEnhance.Brightness(self.image)
+        self.image =brightness_enhancer.enhance(self.brightness)
+
+    def adjust_contrast(self):
+        contrast_enhancer = ImageEnhance.Contrast(self.image)
+        self.image =contrast_enhancer.enhance(self.brightness)
+
+
+
 class ImageViewer(QtCore.QObject):
     smallest_size = None
     instances = []
@@ -19,6 +68,7 @@ class ImageViewer(QtCore.QObject):
         self.combo_box.currentIndexChanged.connect(self.on_combo_box_changed)
         self.image = None
         self.size = None
+        self.adjusted_img = None
         ImageViewer.instances.append(self)
 
     def eventFilter(self, obj, event):
@@ -50,6 +100,9 @@ class ImageViewer(QtCore.QObject):
                         print("the image is not none")
                         if len(self.image.shape) == 3 :
                             self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+                        pil_image = Image.fromarray(self.image)
+                        self.adjusted_img = imageAdjuster(pil_image)
+
                         self.fourier = fourierComponents(self.image, self.ft_widget)
                         self.height, self.width = self.image.shape
                         self.size = (self.width, self.height)
