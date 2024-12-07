@@ -70,8 +70,8 @@ class ImageViewer(QtCore.QObject):
             return
         selected_option = self.combo_box.currentText()
         if selected_option == "None selection" :
+            self.ft_widget.scene().clear()
             self.fourier.remove_rectangle()
-            self.ft_widget.clear()
             return
         print(f"the selected option is {selected_option}")
         ft_component = self.fourier.get_selected_ft_components(selected_option)
@@ -88,8 +88,11 @@ class ImageViewer(QtCore.QObject):
             #     QtCore.Qt.SmoothTransformation
             # ))
             self.ft_widget.scene().items()[0].setImage(ft_component)
+
             if not self.detect_first_time:
                 self.detect_first_time = self.fourier.draw_rectangle(self.detect_first_time)
+
+            self.fourier.rect_boundries()
 
 
     def reDisplay_image(self):
@@ -175,6 +178,20 @@ class fourierComponents(QtCore.QObject):
     def remove_rectangle(self):
         self.ft_widget.scene().removeItem(self.roi)
         self.roi =None
+
+    def rect_boundries(self):
+        if self.roi is None:
+            return None
+        pos = self.roi.pos()
+        size = self.roi.size()
+        x_start = int(pos[0])
+        y_start = int(pos[1])
+        x_end = int(pos[0] + size[0])
+        y_end = int(pos[1] + size[1])
+        print((x_start, x_end, y_start, y_end))
+
+        return (x_start, x_end, y_start, y_end)
+
 
 
 
