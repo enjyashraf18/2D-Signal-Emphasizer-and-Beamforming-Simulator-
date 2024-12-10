@@ -52,9 +52,9 @@ background-color: rgb(42, 42, 42);</string>
      </spacer>
     </item>
     <item row="0" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="mixer_vertical_layout">
       <item>
-       <widget class="QWidget" name="widget" native="true">
+       <widget class="QWidget" name="mixer_widget" native="true">
         <property name="minimumSize">
          <size>
           <width>330</width>
@@ -90,7 +90,7 @@ border-color: transparent;</string>
           <string>Mixer Output: </string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="mixer_output_combobox">
          <property name="geometry">
           <rect>
            <x>150</x>
@@ -107,6 +107,12 @@ border-color: transparent;</string>
                 padding-left: 15px;
                 border: 1px solid transparent;
                 border-radius: 15px; /* Rounded corners */
+            }
+
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
             }
 
             QComboBox QAbstractItemView {
@@ -157,7 +163,7 @@ border-color: transparent;</string>
           <string>Mixer Region: </string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_2">
+        <widget class="QComboBox" name="mixer_region_combo_box">
          <property name="geometry">
           <rect>
            <x>150</x>
@@ -174,6 +180,12 @@ border-color: transparent;</string>
                 padding-left: 15px;
                 border: 1px solid transparent;
                 border-radius: 15px; /* Rounded corners */
+            }
+
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
             }
 
             QComboBox QAbstractItemView {
@@ -224,7 +236,7 @@ border-color: transparent;</string>
           <string>Component 1:</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="real_img_button">
          <property name="geometry">
           <rect>
            <x>40</x>
@@ -260,10 +272,10 @@ QRadioButton::indicator::checked {
 </string>
          </property>
          <property name="text">
-          <string>Real/ Img</string>
+          <string>Real/Img</string>
          </property>
         </widget>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="mag_phase_button">
          <property name="geometry">
           <rect>
            <x>150</x>
@@ -299,7 +311,7 @@ QRadioButton::indicator::checked {
 </string>
          </property>
          <property name="text">
-          <string>Magnitude/ Shift</string>
+          <string>Magnitude/Phase</string>
          </property>
         </widget>
         <widget class="QSlider" name="horizontalSlider_1">
@@ -691,7 +703,7 @@ QSlider::handle:horizontal {
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_6">
+        <widget class="QComboBox" name="mixer_combobox_1">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -710,6 +722,12 @@ QSlider::handle:horizontal {
                 border-radius: 15px; /* Rounded corners */
             }
 
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
+            }
+
             QComboBox QAbstractItemView {
                 background-color: #444444;    /* Dropdown list background */
                 color: #ffffff;               /* Dropdown list text color */
@@ -739,7 +757,7 @@ QSlider::handle:horizontal {
 </string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_8">
+        <widget class="QComboBox" name="mixer_combobox_2">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -758,6 +776,16 @@ QSlider::handle:horizontal {
                 border-radius: 15px; /* Rounded corners */
             }
 
+            QComboBox:disabled {
+            color: rgb(0, 0, 0); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
+            }
+
+            QComboBox::item:disabled {
+            color: rgb(0, 0, 0); /* Change color of disabled items globally */
+            }
+
             QComboBox QAbstractItemView {
                 background-color: #444444;    /* Dropdown list background */
                 color: #ffffff;               /* Dropdown list text color */
@@ -787,7 +815,7 @@ QSlider::handle:horizontal {
 </string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_9">
+        <widget class="QComboBox" name="mixer_combobox_3">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -806,6 +834,12 @@ QSlider::handle:horizontal {
                 border-radius: 15px; /* Rounded corners */
             }
 
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
+            }
+
             QComboBox QAbstractItemView {
                 background-color: #444444;    /* Dropdown list background */
                 color: #ffffff;               /* Dropdown list text color */
@@ -835,7 +869,7 @@ QSlider::handle:horizontal {
 </string>
          </property>
         </widget>
-        <widget class="QComboBox" name="comboBox_10">
+        <widget class="QComboBox" name="mixer_combobox_4">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -852,6 +886,12 @@ QSlider::handle:horizontal {
                 padding-left: 15px;
                 border: 1px solid transparent;
                 border-radius: 15px; /* Rounded corners */
+            }
+
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
             }
 
             QComboBox QAbstractItemView {
@@ -885,7 +925,7 @@ QSlider::handle:horizontal {
         </widget>
        </widget>
       </item>
-     </layout>
+     </layout>HII
     </item>
     <item row="0" column="3">
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -918,9 +958,9 @@ QSlider::handle:horizontal {
          </spacer>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <layout class="QHBoxLayout" name="viewers_horizontal_layout">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_10">
+           <layout class="QVBoxLayout" name="viewer_layout_1">
             <item>
              <widget class="QLabel" name="label_7">
               <property name="styleSheet">
@@ -935,7 +975,7 @@ border-color: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_7">
+             <widget class="QLabel" name="image_viewer_1">
               <property name="minimumSize">
                <size>
                 <width>250</width>
@@ -964,7 +1004,7 @@ border-color: transparent;</string>
              </spacer>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_7">
+             <widget class="QComboBox" name="viewer_combobox_1">
               <property name="minimumSize">
                <size>
                 <width>150</width>
@@ -985,6 +1025,12 @@ border-color: transparent;</string>
                 padding-left: 15px;
                 border: 1px solid transparent;
                 border-radius: 15px; /* Rounded corners */
+            }
+
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
             }
 
             QComboBox QAbstractItemView {
@@ -1033,7 +1079,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_9">
               <item>
-               <widget class="QWidget" name="widget_8" native="true">
+               <widget class="QLabel" name="ft_label_1" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1069,7 +1115,7 @@ border-color: transparent;</string>
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <layout class="QVBoxLayout" name="viewer_layout_2">
             <item>
              <widget class="QLabel" name="label_4">
               <property name="styleSheet">
@@ -1084,7 +1130,7 @@ border-color: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_4">
+             <widget class="QLabel" name="image_viewer_2">
               <property name="minimumSize">
                <size>
                 <width>250</width>
@@ -1113,7 +1159,7 @@ border-color: transparent;</string>
              </spacer>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_4">
+             <widget class="QComboBox" name="viewer_combobox_2">
               <property name="minimumSize">
                <size>
                 <width>150</width>
@@ -1134,6 +1180,12 @@ border-color: transparent;</string>
                 padding-left: 15px;
                 border: 1px solid transparent;
                 border-radius: 15px; /* Rounded corners */
+            }
+
+            QComboBox:disabled {
+            color: rgb(150, 150, 150); /* Change text color when disabled */
+            background-color: rgb(50, 50, 50); /* Change background color when disabled */
+            border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
             }
 
             QComboBox QAbstractItemView {
@@ -1182,7 +1234,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
-               <widget class="QWidget" name="widget_5" native="true">
+               <widget class="QLabel" name="ft_label_2" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1218,7 +1270,7 @@ border-color: transparent;</string>
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
+           <layout class="QVBoxLayout" name="viewer_layout_3">
             <item>
              <widget class="QLabel" name="label_5">
               <property name="styleSheet">
@@ -1233,7 +1285,7 @@ border-color: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_5">
+             <widget class="QLabel" name="image_viewer_3">
               <property name="minimumSize">
                <size>
                 <width>250</width>
@@ -1262,7 +1314,7 @@ border-color: transparent;</string>
              </spacer>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_5">
+             <widget class="QComboBox" name="viewer_combobox_3">
               <property name="minimumSize">
                <size>
                 <width>150</width>
@@ -1331,7 +1383,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
-               <widget class="QWidget" name="widget_6" native="true">
+               <widget class="QLabel" name="ft_label_3" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1367,7 +1419,7 @@ border-color: transparent;</string>
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
+           <layout class="QVBoxLayout" name="viewer_layout_4">
             <item>
              <widget class="QLabel" name="label_6">
               <property name="styleSheet">
@@ -1382,7 +1434,7 @@ border-color: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_6">
+             <widget class="QLabel" name="image_viewer_4">
               <property name="minimumSize">
                <size>
                 <width>250</width>
@@ -1411,7 +1463,7 @@ border-color: transparent;</string>
              </spacer>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_3">
+             <widget class="QComboBox" name="viewer_combobox_4">
               <property name="minimumSize">
                <size>
                 <width>150</width>
@@ -1480,7 +1532,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_8">
               <item>
-               <widget class="QWidget" name="widget_7" native="true">
+               <widget class="QLabel" name="ft_label_4" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1547,7 +1599,7 @@ border-color: transparent;</string>
          </spacer>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <layout class="QHBoxLayout" name="outputs_horizontal_layout">
           <item>
            <spacer name="horizontalSpacer_7">
             <property name="orientation">
@@ -1562,7 +1614,7 @@ border-color: transparent;</string>
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
+           <layout class="QVBoxLayout" name="output_vertical_layout_1">
             <item>
              <widget class="QLabel" name="label_8">
               <property name="styleSheet">
@@ -1577,7 +1629,7 @@ border-color: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="widget_4" native="true">
+             <widget class="QLabel" name="output_label_one" native="true">
               <property name="minimumSize">
                <size>
                 <width>450</width>
@@ -1608,7 +1660,7 @@ border-color: transparent;</string>
            </spacer>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
+           <layout class="QVBoxLayout" name="output_vertical_layout_2">
             <item>
              <widget class="QLabel" name="label_3">
               <property name="styleSheet">
@@ -1623,7 +1675,7 @@ border-color: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="widget_3" native="true">
+             <widget class="QLabel" name="output_label_two" native="true">
               <property name="minimumSize">
                <size>
                 <width>450</width>
@@ -1663,16 +1715,21 @@ border-color: transparent;</string>
     color: #DDD; /* Light gray text */
 }
 
+QProgressBar::chunk {
+               background-color: #2887bf;
+               width: 20px;
+               }
+
 QProgressBar[value=&quot;0&quot;]::chunk {
-    background-color: #FF0000; /* Red for 0% */
+    background-color: #cc3c3c; /* Red for 0% */
 }
 
 QProgressBar[value=&quot;50&quot;]::chunk {
-    background-color: #FFFF00; /* Yellow for 50% */
+    background-color: #2887bf; /* blue for 50% */
 }
 
 QProgressBar[value=&quot;100&quot;]::chunk {
-    background-color: #00FF00; /* Green for 100% */
+    background-color: #2887bf; /* blue for 100% */
 }
 </string>
           </property>

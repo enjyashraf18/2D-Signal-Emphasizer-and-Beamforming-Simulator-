@@ -2,6 +2,9 @@ from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QComboBox, QSlider, QRadioButton, QButtonGroup
 from ImageViewer import ImageViewer
 from ComponentsMixer import ComponentsMixer
+import logging
+logging.basicConfig(filemode="a", filename="Logging_Info.log",
+                    format="(%(asctime)s) | %(name)s| %(levelname)s | => %(message)s", level=logging.INFO)
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -18,6 +21,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.image_ft_layout = QtWidgets.QHBoxLayout()
         main_layout.addLayout(self.image_ft_layout)
 
+        self.mode = None
         # creation of widgets
         self.image_widgets = []
         self.ft_widgets = []
@@ -63,20 +67,28 @@ class MainWindow(QtWidgets.QMainWindow):
             self.image_event_handlers.append(image_events_handler)
             image_widget.installEventFilter(image_events_handler)
 
-        self.sliders_values = [100]*4
-        self.components_mixer = ComponentsMixer(self.image_event_handlers, self.combo_boxes, self.sliders_values)
+        # Output Widgets
+        self.output_widget_one = QtWidgets.QLabel()
+        self.output_widget_one.setAlignment(QtCore.Qt.AlignCenter)
+        self.output_widget_one.setStyleSheet("background-color: black;")
+        self.output_widget_one.setFixedSize(300, 200)
+        self.image_ft_layout.addWidget(self.output_widget_one)
 
-        # sliders
+        self.sliders_values = [100]*4
+        self.components_mixer = ComponentsMixer(self.mode, self.image_event_handlers, self.combo_boxes, self.output_widget_one)
+
+        # Sliders
         self.weight_sliders = []
         for i in range(0, 4):
             slider = QSlider()
             slider.setRange(0, 100)
+            slider.setValue(100)
             slider.setObjectName(f"slider_{i}")
             slider.valueChanged.connect(lambda value, index=i: self.components_mixer.change_weights(value, index))
             self.weight_sliders.append(slider)
             self.image_ft_layout.addWidget(slider)
 
-        # mode selection
+        # Mode Selection
         self.real_img_mode = QRadioButton("Real/Imaginary")
         self.phase_mag_mode = QRadioButton("Phase/Magnitude")
         self.mode_selection = QButtonGroup()
@@ -94,10 +106,14 @@ class MainWindow(QtWidgets.QMainWindow):
             combobox = self.combo_boxes[i]
             for j in range(1, 5):  # 4 items per combobox
                 if j == 3 or j == 4:
-                    print("here")
                     combobox.model().item(j).setEnabled(is_real_img)
+                    self.mode = "real_img"
+                    self.components_mixer.mode = "real_img"
+                    self.components_mixer.set_component_type_and_value(None, None, None, is_setting_component=False)
                 else:
                     combobox.model().item(j).setEnabled(not is_real_img)
+                    self.components_mixer.mode = "mag_phase"
+                    self.components_mixer.set_component_type_and_value(None, None, None, is_setting_component=False)
 
 
 if __name__ == "__main__":
