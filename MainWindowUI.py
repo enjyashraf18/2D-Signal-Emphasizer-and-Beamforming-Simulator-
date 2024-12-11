@@ -4,6 +4,7 @@ from PyQt5.QtGui import QIcon
 from ImageViewer import ImageViewer
 from ComponentsMixer import ComponentsMixer
 import logging
+import pyqtgraph as pg
 
 # Configure logging to capture all log levels
 logging.basicConfig(filemode="a", filename="Logging_Info.log",
@@ -22,21 +23,25 @@ class MainWindow(QtWidgets.QMainWindow):
 
         #### LAYOUTS ####
         ##
-        self.horizontalLayout_8 = self.findChild(QHBoxLayout, "horizontalLayout_8")
+        self.horizontalLayout_4 = self.findChild(QHBoxLayout, "horizontalLayout_8")
+        # self.horizontalLayout_4.name = "horizontal_layout_4"
         self.viewer_layout_4 = self.findChild(QVBoxLayout, "viewer_layout_4")
-        self.viewer_layout_4.addLayout(self.horizontalLayout_8)
+        self.viewer_layout_4.addLayout(self.horizontalLayout_4)
 
-        self.horizontalLayout_6 = self.findChild(QHBoxLayout, "horizontalLayout_6")
+        self.horizontalLayout_3 = self.findChild(QHBoxLayout, "horizontalLayout_6")
+        # self.horizontalLayout_3.name = "horizontal_layout_3"
         self.viewer_layout_3 = self.findChild(QVBoxLayout, "viewer_layout_3")
-        self.viewer_layout_3.addLayout(self.horizontalLayout_6)
+        self.viewer_layout_3.addLayout(self.horizontalLayout_3)
 
-        self.horizontalLayout_5 = self.findChild(QHBoxLayout, "horizontalLayout_5")
+        self.horizontalLayout_2 = self.findChild(QHBoxLayout, "horizontalLayout_5")
+        # self.horizontalLayout_2.name = "horizontal_layout_2"
         self.viewer_layout_2 = self.findChild(QVBoxLayout, "viewer_layout_2")
-        self.viewer_layout_2.addLayout(self.horizontalLayout_5)
+        self.viewer_layout_2.addLayout(self.horizontalLayout_2)
 
-        self.horizontalLayout_9 = self.findChild(QHBoxLayout, "horizontalLayout_9")
+        self.horizontalLayout_1 = self.findChild(QHBoxLayout, "horizontalLayout_9")
+        # self.horizontalLayout_1.name = "horizontal_layout_1"
         self.viewer_layout_1 = self.findChild(QVBoxLayout, "viewer_layout_1")
-        self.viewer_layout_1.addLayout(self.horizontalLayout_9)
+        self.viewer_layout_1.addLayout(self.horizontalLayout_1)
 
         self.viewers_horizontal_layout = self.findChild(QHBoxLayout, "viewers_horizontal_layout")
         self.viewers_horizontal_layout.addLayout(self.viewer_layout_1)
@@ -71,12 +76,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.weight_sliders = []
         self.image_labels = []
         self.image_event_handlers = []
-        self.ft_labels = []
+        self.ft_widgets = []
         # self.viewer_combo_boxes = []
         self.mixer_combo_boxes = []
         self.output_labels = []
         self.sliders_values = [100]*4
         self.mode = "real_img"
+
+        self.ROI_rectangles = []
 
         ######### SETUP: DO NOT CHANGE THE ORDER OF ANYTHING #########
 
@@ -84,6 +91,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.progress_bar = self.findChild(QProgressBar, "progress_bar")
 
         for i in range(1, 5):
+            detect_first_time = False
             # MIXER
                 # Mixer Combo Boxes
             mixer_combo_box = self.findChild(QComboBox, f"mixer_combobox_{i}")
@@ -105,14 +113,39 @@ class MainWindow(QtWidgets.QMainWindow):
             # self.viewer_combo_boxes.append(viewer_combobox)
 
                 # Component Viewers
-            ft_label = self.findChild(QLabel, f"ft_label_{i}")
+            ft_widget = self.findChild(QWidget, f"ft_widget_{i}")
+
+            if i == 1:
+                self.horizontalLayout_1.removeWidget(ft_widget)
+            elif i == 2:
+                self.horizontalLayout_2.removeWidget(ft_widget)
+            elif i == 3:
+                self.horizontalLayout_3.removeWidget(ft_widget)
+            else:
+                self.horizontalLayout_4.removeWidget(ft_widget)
+
+            ft_widget.deleteLater()
+            ft_widget = pg.GraphicsLayoutWidget()
+            ft_view = ft_widget.addViewBox()
+            self.img_FtComponent = pg.ImageItem()
+            ft_view.addItem(self.img_FtComponent)
+            ft_widget.setFixedSize(300, 200)
+
+            if i == 1:
+                self.horizontalLayout_1.addWidget(ft_widget)
+            elif i == 2:
+                self.horizontalLayout_2.addWidget(ft_widget)
+            elif i == 3:
+                self.horizontalLayout_3.addWidget(ft_widget)
+            else:
+                self.horizontalLayout_4.addWidget(ft_widget)
 
                 # Image Viewers
             image_label = self.findChild(QLabel, f"image_viewer_{i}")
-            image_events_handler = ImageViewer(image_label, ft_label, mixer_combo_box, i-1, self)
+            image_events_handler = ImageViewer(image_label, ft_widget, mixer_combo_box, i-1, self, detect_first_time, self.img_FtComponent, self.ROI_rectangles)
             self.image_labels.append(image_label)
             self.image_event_handlers.append(image_events_handler)
-            self.ft_labels.append(ft_label)
+            self.ft_widgets.append(ft_widget)
             image_label.installEventFilter(image_events_handler)
 
             # OUTPUT VIEWERS
@@ -159,7 +192,7 @@ class MainWindow(QtWidgets.QMainWindow):
             # viewer_combobox = self.viewer_combo_boxes[i]
             mixer_combobox = self.mixer_combo_boxes[i]
             slider = self.weight_sliders[i]
-            ft_label = self.ft_labels[i]
+            ft_widget = self.ft_widgets[i]
             for j in range(1, 5):  # 4 items per combobox
                 item = mixer_combobox.model().item(j)
                 if j == 3 or j == 4:
@@ -221,7 +254,7 @@ class MainWindow(QtWidgets.QMainWindow):
             slider.setValue(100)
             mixer_combobox.blockSignals(False)
             slider.blockSignals(False)
-            ft_label.clear()
+            ft_widget.clear()
         self.output_label_one.clear()
         self.output_label_two.clear()
         if not on_start:

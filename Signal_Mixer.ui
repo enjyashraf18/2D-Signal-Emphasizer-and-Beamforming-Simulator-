@@ -970,7 +970,7 @@ font-weight:600;
 border-color: transparent;</string>
               </property>
               <property name="text">
-               <string>Photo 1:</string>
+               <string>Photo 1</string>
               </property>
              </widget>
             </item>
@@ -1079,7 +1079,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_9">
               <item>
-               <widget class="QLabel" name="ft_label_1" native="true">
+               <widget class="QWidget" name="ft_widget_1" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1125,7 +1125,7 @@ font-weight:600;
 border-color: transparent;</string>
               </property>
               <property name="text">
-               <string>Photo 2:</string>
+               <string>Photo 2</string>
               </property>
              </widget>
             </item>
@@ -1234,7 +1234,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
-               <widget class="QLabel" name="ft_label_2" native="true">
+               <widget class="QWidget" name="ft_widget_2" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1280,7 +1280,7 @@ font-weight:600;
 border-color: transparent;</string>
               </property>
               <property name="text">
-               <string>Photo 3:</string>
+               <string>Photo 3</string>
               </property>
              </widget>
             </item>
@@ -1383,7 +1383,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
-               <widget class="QLabel" name="ft_label_3" native="true">
+               <widget class="QWidget" name="ft_widget_3" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1429,7 +1429,7 @@ font-weight:600;
 border-color: transparent;</string>
               </property>
               <property name="text">
-               <string>Photo 4:</string>
+               <string>Photo 4</string>
               </property>
              </widget>
             </item>
@@ -1532,7 +1532,7 @@ border-color: transparent;</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_8">
               <item>
-               <widget class="QLabel" name="ft_label_4" native="true">
+               <widget class="QWidget" name="ft_widget_4" native="true">
                 <property name="minimumSize">
                  <size>
                   <width>150</width>
@@ -1624,7 +1624,7 @@ font-weight:600;
 border-color: transparent;</string>
               </property>
               <property name="text">
-               <string>Output 1:</string>
+               <string>Output 1</string>
               </property>
              </widget>
             </item>
@@ -1670,7 +1670,7 @@ font-weight:600;
 border-color: transparent;</string>
               </property>
               <property name="text">
-               <string>Output 2:</string>
+               <string>Output 2</string>
               </property>
              </widget>
             </item>
