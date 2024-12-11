@@ -76,6 +76,7 @@ class ImageViewer(QtCore.QObject):
         self.contrast = 1.0
         self.last_mouse_pos = None
         self.original_image = None
+        self.detect_load_img = False
 
         ImageViewer.instances.append(self)
 
@@ -106,10 +107,13 @@ class ImageViewer(QtCore.QObject):
                     '.jpg') or self.image_file_path.lower().endswith('.png'):
                 print("iam after the image file path")
                 try:
+                    self.detect_load_img = True
                     # self.ft_widget.clear()
-
+                    self.img_FtComponent.clear()
                     self.img_FtComponent  = self.ref_img_FtComponent
                     self.image_widget.clear()
+                    # self.img_FtComponent = pg.ImageItem()
+                    # self.ft_widget.addItem(self.img_FtComponent)
                     self.combo_box.setCurrentIndex(0)
                     self.image = cv2.imread(self.image_file_path)
                     print("i have read the image ")
@@ -140,8 +144,15 @@ class ImageViewer(QtCore.QObject):
             return
         selected_option = self.combo_box.currentText()
         if selected_option == "None selection" :
+            self.img_FtComponent.clear()
             # self.ft_widget.clear()
+            #
+            # ft_view = self.ft_widget.addViewBox()
+            # self.img_FtComponent = pg.ImageItem()
+            # self.img_FtComponent = self.ref_img_FtComponent
+            # ft_view.addItem(self.img_FtComponent)
             self.fourier.remove_rectangle()
+            self.detect_load_img = True
 
             return
         print(f"the selected option is {selected_option}")
@@ -169,8 +180,9 @@ class ImageViewer(QtCore.QObject):
             # ))
             # self.img_FtComponent.setImage(ft_component)
 
-            if not self.detect_first_time:
+            if not self.detect_first_time or self.detect_load_img:
                 self.detect_first_time = self.fourier.draw_rectangle(self.detect_first_time)
+                self.detect_load_img = False
 
             # self.fourier.rect_boundries()
 
