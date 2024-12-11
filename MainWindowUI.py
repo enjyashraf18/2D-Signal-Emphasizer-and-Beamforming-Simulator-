@@ -106,7 +106,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # IMAGE VIEWERS
                 # Viewer Comboboxes
-            # viewer_combobox = self.findChild(QComboBox, f"viewer_combobox_{i}")
+            viewer_combobox = self.findChild(QComboBox, f"viewer_combobox_{i}")
             # viewer_combobox.addItem("None")
             # viewer_combobox.addItem("FT Magnitude")
             # viewer_combobox.addItem("FT Phase")
@@ -119,19 +119,24 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if i == 1:
                 self.horizontalLayout_1.removeWidget(ft_widget)
+                self.horizontalLayout_1.removeWidget(viewer_combobox)
             elif i == 2:
                 self.horizontalLayout_2.removeWidget(ft_widget)
+                self.horizontalLayout_2.removeWidget(viewer_combobox)
             elif i == 3:
                 self.horizontalLayout_3.removeWidget(ft_widget)
+                self.horizontalLayout_3.removeWidget(viewer_combobox)
             else:
                 self.horizontalLayout_4.removeWidget(ft_widget)
+                self.horizontalLayout_4.removeWidget(viewer_combobox)
 
             ft_widget.deleteLater()
+            viewer_combobox.deleteLater()
             ft_widget = pg.GraphicsLayoutWidget()
             ft_view = ft_widget.addViewBox()
             self.img_FtComponent = pg.ImageItem()
             ft_view.addItem(self.img_FtComponent)
-            # ft_widget.setFixedSize(300, 200)
+            ft_widget.setFixedSize(250, 250)
 
             if i == 1:
                 self.horizontalLayout_1.addWidget(ft_widget)

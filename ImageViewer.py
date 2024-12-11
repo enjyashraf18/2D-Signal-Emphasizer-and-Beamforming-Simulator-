@@ -118,8 +118,7 @@ class ImageViewer(QtCore.QObject):
             # self.ft_widget.clear()
             self.fourier.remove_rectangle()
             self.detect_load_img = True
-            self.main_window.components_mixer.set_component_type_and_value(None, np.zeros(self.size),
-                                                                           self.index, self.size)
+            self.main_window.components_mixer.set_component_type_and_value(None, np.zeros(self.size), self.index, self.size)
             return
         # print(f"the selected option is {selected_option}")
         self.ft_component = self.fourier.get_selected_ft_components(selected_option)
@@ -172,6 +171,7 @@ class ImageViewer(QtCore.QObject):
                 QtCore.Qt.KeepAspectRatio,
                 QtCore.Qt.SmoothTransformation
             ))
+            self.image_widget.setAlignment(QtCore.Qt.AlignCenter)
         except Exception as e:
             print(f"Error in redisplay_image: {e}")
 

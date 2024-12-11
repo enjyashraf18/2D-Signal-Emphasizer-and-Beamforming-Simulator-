@@ -50,32 +50,32 @@ class FourierComponents(QtCore.QObject):
 
     def zero_out_component(self, new_comp):
         if self.region_type == "inner":
-            new_comp[:self.x_start, :self.y_start] = 0
-            new_comp[self.x_end:, self.y_end:] = 0
+            new_comp[:self.x_start, :] = 0
+            new_comp[self.x_end:, :] = 0
+            new_comp[:, :self.y_start] = 0
+            new_comp[:, self.y_end:] = 0
             return new_comp
         elif self.region_type == "outer":
             new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
             return new_comp
 
-
-
     def region_mixer_output(self):
-        # if self.region_type == "inner":
-        if self.selected == "Ft real":
-            new_comp = self.real_comp.copy()
-            self.zero_out_component(new_comp)
+        if self.region_type == "inner":
+            if self.selected == "FT real":
+                new_comp = self.real_comp.copy()
+                return self.zero_out_component(new_comp)
 
-        elif self.selected == "Ft imaginary":
-            new_comp = self.img_comp.copy()
-            self.zero_out_component(new_comp)
+            elif self.selected == "Ft imaginary":
+                new_comp = self.img_comp.copy()
+                return self.zero_out_component(new_comp)
 
-        elif self.selected == "Ft Magnitude":
-            new_comp = self.mag_comp.copy()
-            self.zero_out_component(new_comp)
+            elif self.selected == "Ft Magnitude":
+                new_comp = self.mag_comp.copy()
+                return self.zero_out_component(new_comp)
 
-        elif self.selected == "Ft phase":
-            new_comp = self.phase_comp.copy()
-            self.zero_out_component(new_comp)
+            elif self.selected == "Ft phase":
+                new_comp = self.phase_comp.copy()
+                return self.zero_out_component(new_comp)
 
 
 
