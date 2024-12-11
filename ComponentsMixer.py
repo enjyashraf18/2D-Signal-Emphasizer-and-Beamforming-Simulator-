@@ -4,13 +4,17 @@ from PIL import Image
 from scipy import fftpack
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5 import QtCore
+import time
+import threading
+import math
 import logging
+
 logging.basicConfig(filemode="a", filename="Logging_Info.log",
                     format="(%(asctime)s) | %(name)s| %(levelname)s | => %(message)s", level=logging.INFO)
 
 
 class ComponentsMixer:
-    def __init__(self, mode, images, components_combo_boxes,  output_labels):
+    def __init__(self, mode, images, components_combo_boxes,  output_labels, progress_bar):
         self.images_components = [i.ft_component for i in images]  # list of ft components of images
         self.weights = [100]*4  # from sliders
         self.size = None
@@ -24,6 +28,9 @@ class ComponentsMixer:
         self.output_channel = 1
         self.image_viewers = images
         self.output_labels = output_labels
+        self.progress_bar = progress_bar
+        self.empty_count = 0
+        self.thread = threading.Thread(target=self.update_progress_bar)
 
         # self.components_combo_boxes = components_combo_boxes
         # for i in range(4):
@@ -54,8 +61,7 @@ class ComponentsMixer:
         magnitude = np.zeros(self.size)
         phase = np.zeros(self.size)
 
-        empty_count = 0
-
+        self.empty_count = 0
         if self.mode == "real_img":
             print("Real/Imaginary Mode")
             logging.info("Mixing in Real/Imaginary Mode")
@@ -65,8 +71,8 @@ class ComponentsMixer:
                 elif self.components_types[i] == "FT Imaginary":
                     imaginary += self.input_values[i] * (self.weights[i]/100)
                 else:
-                    empty_count += 1
-            if empty_count == 4:
+                    self.empty_count += 1
+            if self.empty_count == 4:
                 self.output_labels[0].clear()
                 self.output_labels[1].clear()
                 return
@@ -80,8 +86,8 @@ class ComponentsMixer:
                 elif self.components_types[i] == "FT Phase":
                     phase = self.input_values[i] * (self.weights[i]/100)
                 else:
-                    empty_count += 1
-            if empty_count == 4:
+                    self.empty_count += 1
+            if self.empty_count == 4:
                 self.output_labels[0].clear()
                 self.output_labels[1].clear()
                 return
@@ -104,6 +110,8 @@ class ComponentsMixer:
         self.reconstruct_mixed_image()
 
     def show_image(self, mixed_pixmap):
+        self.thread = threading.Thread(target=self.update_progress_bar)
+        self.thread.start()
         if self.output_channel == 1:
             channel = self.output_labels[0]
         else:
@@ -125,6 +133,39 @@ class ComponentsMixer:
         logging.info(f"Current Output Channel: {output}")
         self.output_channel = output
         # self.reconstruct_mixed_image()
+
+    import time
+
+    def update_progress_bar(self):
+        print(f"empty: {self.empty_count}")
+        images_count = 4 - self.empty_count  # for easier calculations
+        increments = [0, 25, 33, 50, 65, 80, 100]
+        if images_count == 4:
+            logging.info(f"Processing 4 images")
+            t = 5
+            j = 1
+        elif images_count == 3:
+            logging.info(f"Processing 3 images")
+            t = 3
+            j = 2
+        elif images_count == 2:
+            logging.info(f"Processing 2 images")
+            t = 3
+            j = 3
+        else:
+            logging.info(f"Processing 1 image")
+            t = 2
+            j = 4
+
+        for i in range(j, 5):
+            time.sleep(0.5)
+            self.progress_bar.setValue(increments[i])
+            time.sleep(0.5)
+
+        self.progress_bar.setValue(100)
+        time.sleep(1)
+        self.progress_bar.setValue(0)
+
 
     # def on_combo_box_changed(self):
     #     print("iam here")

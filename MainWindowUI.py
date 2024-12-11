@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtWidgets, uic
-from PyQt5.QtWidgets import QComboBox, QSlider, QRadioButton, QVBoxLayout, QLabel, QWidget, QHBoxLayout
+from PyQt5.QtWidgets import QComboBox, QSlider, QRadioButton, QVBoxLayout, QLabel, QWidget, QHBoxLayout, QProgressBar
 from PyQt5.QtGui import QIcon
 from ImageViewer import ImageViewer
 from ComponentsMixer import ComponentsMixer
@@ -80,6 +80,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         ######### SETUP: DO NOT CHANGE THE ORDER OF ANYTHING #########
 
+        # Progress Bar
+        self.progress_bar = self.findChild(QProgressBar, "progress_bar")
+
         for i in range(1, 5):
             # MIXER
                 # Mixer Combo Boxes
@@ -119,7 +122,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.output_labels.append(self.output_label_two)
 
             self.components_mixer = ComponentsMixer(self.mode, self.image_event_handlers, self.mixer_combo_boxes,
-                                                    self.output_labels)
+                                                    self.output_labels, self.progress_bar)
 
             # Sliders
             slider = self.findChild(QSlider, f"horizontalSlider_{i}")
@@ -158,12 +161,58 @@ class MainWindow(QtWidgets.QMainWindow):
             slider = self.weight_sliders[i]
             ft_label = self.ft_labels[i]
             for j in range(1, 5):  # 4 items per combobox
+                item = mixer_combobox.model().item(j)
                 if j == 3 or j == 4:
                     # viewer_combobox.model().item(j).setEnabled(is_real_img)
-                    mixer_combobox.model().item(j).setEnabled(is_real_img)
+                    item.setEnabled(is_real_img)
                 else:
                     # viewer_combobox.model().item(j).setEnabled(not is_real_img)
-                    mixer_combobox.model().item(j).setEnabled(not is_real_img)
+                    item.setEnabled(not is_real_img)
+
+        # Change UI of disabled items (not working)
+        #     mixer_combobox.setStyleSheet("""
+        #     QComboBox {
+        #         color: rgb(255, 255, 255);
+        #         font-size: 18px;
+        #         background-color: rgb(24, 24, 24);
+        #         padding-left: 15px;
+        #         border: 1px solid transparent;
+        #         border-radius: 15px; /* Rounded corners */
+        #     }
+        #
+        #     QComboBox:disabled {
+        #     color: rgb(0, 0, 0); /* Change text color when disabled */
+        #     background-color: rgb(50, 50, 50); /* Change background color when disabled */
+        #     border: 1px solid rgb(100, 100, 100); /* Change border color when disabled */
+        #     }
+        #
+        #
+        #     QComboBox QAbstractItemView {
+        #         background-color: #444444;    /* Dropdown list background */
+        #         color: #ffffff;               /* Dropdown list text color */
+        #         selection-background-color: #555555;  /* Highlight background */
+        #         selection-color: #FF5757;     /* Highlighted text color */
+        #     }
+        #
+        #     /* Remove the default arrow */
+        #     QComboBox::drop-down {
+        #         margin-right: 10px;
+        #         border-top-right-radius: 15px; /* Apply radius to the top-right */
+        #         border-bottom-right-radius: 15px; /* Apply radius to the bottom-right */
+        #     }
+        #
+        #     /* Customize the arrow (triangle) */
+        #     QComboBox::down-arrow {
+        #         image: url(Deliverables/down-arrow.png); /* Optional: use a custom image for the arrow */
+        #         width: 10px;
+        #         height: 10px;
+        #         margin-right: 10px; /* Moves the arrow more to the right */
+        #     }
+        #     QComboBox QAbstractItemView::item:disabled {
+        #     color: rgb(0, 0, 0);
+        #     }
+        #     """)
+            mixer_combobox.view().reset()
 
         # Reset Controls
             mixer_combobox.blockSignals(True)

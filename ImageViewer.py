@@ -74,6 +74,11 @@ class ImageViewer(QtCore.QObject):
                     logging.error(f"Error. Couldn't upload: {e}")
 
     def on_combo_box_changed(self):
+        try:
+            if self.main_window.components_mixer.thread.is_alive():
+                self.main_window.components_mixer.thread.stop()
+        except Exception as e:
+            logging.error(f"Error fetching thread info: {e}")
         # print("iam here")
         if self.image is None:
             return
