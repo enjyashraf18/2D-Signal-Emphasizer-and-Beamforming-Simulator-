@@ -31,6 +31,8 @@ class ImageViewer(QtCore.QObject):
         self.index = index
         self.ft_component = None
         self.img_ft = None
+        self.fourier = None
+        self.height, self.width = None, None
 
         self.img_FtComponent = img_FtComponent
         self.ref_img_FtComponent = img_FtComponent
@@ -60,6 +62,7 @@ class ImageViewer(QtCore.QObject):
         return super().eventFilter(obj, event)
 
     def load_image(self):
+        self.image = None
         filename, _ = QFileDialog.getOpenFileName(self.image_widget, "Open Image File", "","Image Files (*.jpeg *.jpg *.png)")
         self.image_file_path = filename
         if self.image_file_path:
@@ -68,7 +71,7 @@ class ImageViewer(QtCore.QObject):
                 try:
                     self.detect_load_img = True
                     # self.ft_widget.clear()
-                    self.img_FtComponent.clear()
+                    # self.img_FtComponent.clear()
                     self.img_FtComponent = self.ref_img_FtComponent
                     self.image_widget.clear()
                     # self.img_FtComponent = pg.ImageItem()
@@ -89,7 +92,7 @@ class ImageViewer(QtCore.QObject):
                         self.update_smallest_size()
                         self.notify_all_instances()
                         self.original_image = self.image.copy()
-                        self.redisplay_image(self.image)
+                        self.redisplay_image()
                         # print(f"i set the image")
                 except Exception as e:
                     print(f"Error. Couldn't upload: {e}")
@@ -109,7 +112,7 @@ class ImageViewer(QtCore.QObject):
         if selected_option == "None":
             # print(f"Inside none on_combobox changed")
             logging.warning(f"No component is selected for image {self.index}.")
-            self.img_FtComponent.clear()
+            # self.img_FtComponent.clear()
             # self.ft_widget.clear()
             self.fourier.remove_rectangle()
             self.detect_load_img = True
@@ -153,7 +156,23 @@ class ImageViewer(QtCore.QObject):
                 logging.error(f"Error in set_component_type_and_value: {e}")
             self.calc_components(selected_option)
 
-    def redisplay_image(self, adjusted_img):
+    def redisplay_image(self):
+        if self.image is None:
+            print("No image to display.")
+            return
+        try:
+            q_image = QtGui.QImage(np.ascontiguousarray(self.image.data), self.size[0], self.size[1], self.size[0],
+                                   QtGui.QImage.Format_Grayscale8)
+            pixmap = QPixmap.fromImage(q_image)
+            self.image_widget.setPixmap(pixmap.scaled(
+                self.image_widget.size(),
+                QtCore.Qt.KeepAspectRatio,
+                QtCore.Qt.SmoothTransformation
+            ))
+        except Exception as e:
+            print(f"Error in redisplay_image: {e}")
+
+    def redisplay_image_for_brightness(self, adjusted_img):
         if self.image is None:
             print("No image to display.")
             return
@@ -187,7 +206,7 @@ class ImageViewer(QtCore.QObject):
         for instance in ImageViewer.instances:
             if instance.image is not None:
                 instance.resize_to_smallest_image()
-                instance.redisplay_image(self.image)
+                instance.redisplay_image()
 
     def calc_components(self, selected_option):
         if self.image is None:
@@ -215,7 +234,7 @@ class ImageViewer(QtCore.QObject):
 
     def ajust_brightness_and_contrast(self):
         adjusted_img = cv2.convertScaleAbs(self.original_image, alpha=self.contrast, beta=self.brightness)
-        self.reDisplay_image(adjusted_img)
+        self.redisplay_image_for_brightness(adjusted_img)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
