@@ -32,7 +32,8 @@ class ImageViewer(QtCore.QObject):
         self.ft_component = None
         self.img_ft = None
         self.fourier = None
-        self.height, self.width = None, None
+        self.height= None
+        self.width = None
 
         self.img_FtComponent = img_FtComponent
         self.ref_img_FtComponent = img_FtComponent
@@ -71,7 +72,7 @@ class ImageViewer(QtCore.QObject):
                 try:
                     self.detect_load_img = True
                     # self.ft_widget.clear()
-                    # self.img_FtComponent.clear()
+                    self.img_FtComponent.clear()
                     self.img_FtComponent = self.ref_img_FtComponent
                     self.image_widget.clear()
                     # self.img_FtComponent = pg.ImageItem()
@@ -98,6 +99,7 @@ class ImageViewer(QtCore.QObject):
                     print(f"Error. Couldn't upload: {e}")
 
     def on_combo_box_changed(self):
+        self.ft_component = None
         try:
             if self.main_window.components_mixer.thread.is_alive():
                 self.main_window.components_mixer.thread.stop()
@@ -111,8 +113,8 @@ class ImageViewer(QtCore.QObject):
         logging.info(f"Selected component for image {self.index} is {selected_option}")
         if selected_option == "None":
             # print(f"Inside none on_combobox changed")
+            self.img_FtComponent.clear()
             logging.warning(f"No component is selected for image {self.index}.")
-            # self.img_FtComponent.clear()
             # self.ft_widget.clear()
             self.fourier.remove_rectangle()
             self.detect_load_img = True
@@ -126,6 +128,7 @@ class ImageViewer(QtCore.QObject):
         if self.ft_component is not None:
             try:
                 if self.ft_component.ndim == 2:
+                    print(f"ft_component.ndim == 2 {self.ft_component}")
                     self.img_FtComponent.setImage(self.ft_component)
                 else:
                     print("Error: ft_component is not a 2D array.")

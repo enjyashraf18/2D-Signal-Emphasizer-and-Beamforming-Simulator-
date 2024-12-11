@@ -84,6 +84,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.mode = "real_img"
 
         self.ROI_rectangles = []
+        self.img_FtComponent = None
 
         ######### SETUP: DO NOT CHANGE THE ORDER OF ANYTHING #########
 
@@ -91,6 +92,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.progress_bar = self.findChild(QProgressBar, "progress_bar")
 
         for i in range(1, 5):
+            self.img_FtComponent = None
             detect_first_time = False
             # MIXER
                 # Mixer Combo Boxes
@@ -129,7 +131,7 @@ class MainWindow(QtWidgets.QMainWindow):
             ft_view = ft_widget.addViewBox()
             self.img_FtComponent = pg.ImageItem()
             ft_view.addItem(self.img_FtComponent)
-            ft_widget.setFixedSize(300, 200)
+            # ft_widget.setFixedSize(300, 200)
 
             if i == 1:
                 self.horizontalLayout_1.addWidget(ft_widget)
@@ -140,7 +142,7 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.horizontalLayout_4.addWidget(ft_widget)
 
-                # Image Viewers
+            # Image Viewers
             image_label = self.findChild(QLabel, f"image_viewer_{i}")
             image_events_handler = ImageViewer(image_label, ft_widget, mixer_combo_box, i-1, self, detect_first_time, self.img_FtComponent, self.ROI_rectangles)
             self.image_labels.append(image_label)
@@ -254,7 +256,8 @@ class MainWindow(QtWidgets.QMainWindow):
             slider.setValue(100)
             mixer_combobox.blockSignals(False)
             slider.blockSignals(False)
-            ft_widget.clear()
+            # ft_widget.clear()
+            self.img_FtComponent.clear()
         self.output_label_one.clear()
         self.output_label_two.clear()
         if not on_start:
