@@ -19,7 +19,7 @@ class ComponentsMixer:
         self.image_viewers = images
         self.images_components = [i.ft_component for i in images]  # list of ft components of images
         self.weights = [100]*4  # from sliders
-        self.size = None
+        self.size = (250, 250)
         self.components_types = [i.currentText() for i in components_combo_boxes]
         self.input_values = [np.zeros(self.size) for _ in range(4)]
         self.original_inputs = [np.zeros(self.size) for _ in range(4)]

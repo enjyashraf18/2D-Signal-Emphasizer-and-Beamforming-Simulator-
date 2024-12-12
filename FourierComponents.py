@@ -14,7 +14,6 @@ class FourierComponents(QtCore.QObject):
         self.fourier_shift = self.calculate_ft()
         self.ft_widget = ft_widget
 
-
         self.final_mouse_pos = None
         self.roi = None
         self.x_start = None
@@ -54,19 +53,21 @@ class FourierComponents(QtCore.QObject):
         self.region_type = region_type
         result = None
         for i in range(4):
-            print(f"ALL COMPONENTS at {i}: {all_components[i]}")
+            # print(f"ALL COMPONENTS at {i}: {all_components[i]}")
             if self.region_type == "Inner Region":
                 result = np.zeros(size)
                 # new_comp[:self.x_start, :] = 0
                 # new_comp[self.x_end:, :] = 0
                 # new_comp[:, :self.y_start] = 0
                 # new_comp[:, self.y_end:] = 0
-                if result.shape != 0:
-                    result[self.x_start:self.x_end, self.y_start: self.y_end] = all_components[i][self.x_start:self.x_end, self.y_start: self.y_end]
+
+                result[self.x_start:self.x_end, self.y_start: self.y_end] = all_components[i][self.x_start:self.x_end, self.y_start: self.y_end]
+                print(f"Inner Components: {result}")
             elif self.region_type == "Outer Region":
                 result = all_components[i].copy()
-                if result.shape != 0:
-                    result[self.x_start:self.x_end, self.y_start: self.y_end] = 0
+
+                result[self.x_start:self.x_end, self.y_start: self.y_end] = 0
+                print(f"Outer Components: {result}")
         return result
 
     def region_mixer_output(self, region_type):
