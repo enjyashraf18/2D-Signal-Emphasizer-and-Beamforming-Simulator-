@@ -7,6 +7,7 @@ from PyQt5 import QtCore
 import time
 import threading
 import math
+import random
 import logging
 
 logging.basicConfig(filemode="a", filename="Logging_Info.log",
@@ -21,6 +22,7 @@ class ComponentsMixer:
         self.size = None
         self.components_types = [i.currentText() for i in components_combo_boxes]
         self.input_values = [np.zeros(self.size) for _ in range(4)]
+        self.original_inputs = [np.zeros(self.size) for _ in range(4)]
         self.real_result = None
         self.imaginary_result = None
         self.phase_result = None
@@ -35,14 +37,11 @@ class ComponentsMixer:
         # self.region_combobox.currentIndexChanged.connect(self.on_region_change)
         self.thread = threading.Thread(target=self.update_progress_bar)
 
-        # self.components_combo_boxes = components_combo_boxes
-        # for i in range(4):
-        #     self.components_combo_boxes[i].currentIndexChanged.connect(self.on_combo_box_changed)
+        self.increments = None
+        self.current_step = None
+        self.progress_timer = None
 
-        # input is a list of ft_components of the 4 images
-        # output is one list of the combined ft_components
-
-    def set_component_type_and_value(self, component_type, ft_component, index, size):
+    def set_component_type_and_value(self, component_type, ft_component, index, size, is_changing_region):
         logging.info(f"Setting Component Type: {component_type}")
         print("Set component called")
         # index -= 1  # to be 0-based index
@@ -50,6 +49,10 @@ class ComponentsMixer:
         self.components_types[index] = component_type
         self.input_values[index] = np.zeros(self.size)
         self.input_values[index] = ft_component
+        if not is_changing_region:  # I'm setting the original component
+            logging.info("Setting original values of components.")
+            self.original_inputs[index] = np.zeros(self.size)
+            self.original_inputs[index] = ft_component
         # print(f"component: {ft_component}")
         # print(f"input: {self.input_values[index]}")
         self.reconstruct_mixed_image()
@@ -112,20 +115,20 @@ class ComponentsMixer:
         print(f"Weight at index {index} = {value}")
         self.reconstruct_mixed_image()
 
-    def show_image(self, mixed_pixmap):
-        self.thread = threading.Thread(target=self.update_progress_bar)
-        self.thread.start()
-        if self.output_channel == 1:
-            channel = self.output_labels[0]
-        else:
-            channel = self.output_labels[1]
-        channel.clear()
-        channel.setPixmap(mixed_pixmap.scaled(
-            channel.size(),
-            QtCore.Qt.KeepAspectRatio,
-            QtCore.Qt.SmoothTransformation
-        ))
-        channel.setAlignment(QtCore.Qt.AlignCenter)
+    # def show_image(self, mixed_pixmap):
+    #     self.thread = threading.Thread(target=self.update_progress_bar)
+    #     self.thread.start()
+    #     if self.output_channel == 1:
+    #         channel = self.output_labels[0]
+    #     else:
+    #         channel = self.output_labels[1]
+    #     channel.clear()
+    #     channel.setPixmap(mixed_pixmap.scaled(
+    #         channel.size(),
+    #         QtCore.Qt.KeepAspectRatio,
+    #         QtCore.Qt.SmoothTransformation
+    #     ))
+    #     channel.setAlignment(QtCore.Qt.AlignCenter)
 
     def set_mode(self, mode):
         self.mode = mode
@@ -137,69 +140,42 @@ class ComponentsMixer:
         self.output_channel = output
         # self.reconstruct_mixed_image()
 
-    import time
-
-    def update_progress_bar(self):
-        print(f"empty: {self.empty_count}")
-        images_count = 4 - self.empty_count  # for easier calculations
-        increments = [0, 25, 33, 50, 65, 80, 100]
-        if images_count == 4:
-            logging.info(f"Processing 4 images")
-            t = 5
-            j = 1
-        elif images_count == 3:
-            logging.info(f"Processing 3 images")
-            t = 3
-            j = 2
-        elif images_count == 2:
-            logging.info(f"Processing 2 images")
-            t = 3
-            j = 3
-        else:
-            logging.info(f"Processing 1 image")
-            t = 2
-            j = 4
-
-        for i in range(j, 5):
-            time.sleep(0.5)
-            self.progress_bar.setValue(increments[i])
-            time.sleep(0.5)
-
-        self.progress_bar.setValue(100)
-        time.sleep(1)
+    def show_image(self, mixed_pixmap):
         self.progress_bar.setValue(0)
+        self.progress_timer = QtCore.QTimer()
+        r = random.randint(1,2)
+        if r == 1:
+            self.increments = [0, 25, 50, 75, 100]
+        else:
+            self.increments = [0, 33, 60, 85, 100]
+        self.current_step = 0
 
-    # def on_region_change(self):
-    #     self.fourier = FourierComponents()
+        # Connect the timer to the progress update function
+        self.progress_timer.timeout.connect(lambda: self.update_progress_bar(mixed_pixmap))
+        self.progress_timer.start(500)  # Update every 500ms
 
-    # def on_region_change(self):
-    #     region_type = self.region_combobox.currentText()
-    #
-    #     if region_type == "Inner Region":
-    #         self.new_components = [np.zeros(self.size) for _ in range(4)]
-    #         for i in range(4):
-    #             self.new_components[self.x_start:self.x_end, self.y_start: self.y_end] = new_comp[self.x_start:self.x_end,
-    #                                                                                 self.y_start: self.y_end]
-    #
-    #     else:
-    #         self.new_components = self.input_values.copy()
-    #         new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
-    #         return new_comp
-    #
-    # def zero_out_component(self, new_comp):
-    #     size = (250, 250)
-    #     if self.region_type == "inner":
-    #         new_inner_comp = np.zeros(size)
-    #         # new_comp[:self.x_start, :] = 0
-    #         # new_comp[self.x_end:, :] = 0
-    #         # new_comp[:, :self.y_start] = 0
-    #         # new_comp[:, self.y_end:] = 0
-    #         new_inner_comp[self.x_start:self.x_end, self.y_start: self.y_end] = new_comp[self.x_start:self.x_end,
-    #                                                                             self.y_start: self.y_end]
-    #         return new_inner_comp
-    #     elif self.region_type == "outer":
-    #         new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
-    #     return new_comp
+    def update_progress_bar(self, mixed_pixmap):
+        if self.current_step < len(self.increments):
+            self.progress_bar.setValue(self.increments[self.current_step])
+            self.current_step += 1
+        else:
+            self.progress_timer.stop()  # Stop the timer when progress is complete
+            self.progress_bar.setValue(0)
+            # Display the image
+            self.display_image(mixed_pixmap)
+
+    def display_image(self, mixed_pixmap):
+        if self.output_channel == 1:
+            channel = self.output_labels[0]
+        else:
+            channel = self.output_labels[1]
+        channel.clear()
+        channel.setPixmap(mixed_pixmap.scaled(
+            channel.size(),
+            QtCore.Qt.KeepAspectRatio,
+            QtCore.Qt.SmoothTransformation
+        ))
+        channel.setAlignment(QtCore.Qt.AlignCenter)
 
 class ImageConverter:
     @staticmethod

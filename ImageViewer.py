@@ -121,7 +121,7 @@ class ImageViewer(QtCore.QObject):
             # self.ft_widget.clear()
             self.fourier.remove_rectangle()
             self.detect_load_img = True
-            self.main_window.components_mixer.set_component_type_and_value(None, np.zeros(self.size), self.index, self.size)
+            self.main_window.components_mixer.set_component_type_and_value(None, np.zeros(self.size), self.index, self.size, is_changing_region=False)
             return
         # print(f"the selected option is {selected_option}")
         self.ft_component = self.fourier.get_selected_ft_components(selected_option)
@@ -130,7 +130,7 @@ class ImageViewer(QtCore.QObject):
         if self.ft_component is not None:
             try:
                 if self.ft_component.ndim == 2:
-                    print(f"ft_component.ndim == 2 {self.ft_component}")
+                    # print(f"ft_component.ndim == 2 {self.ft_component}")
                     self.img_FtComponent.setImage(self.ft_component)
                 else:
                     print("Error: ft_component is not a 2D array.")
@@ -155,7 +155,7 @@ class ImageViewer(QtCore.QObject):
             component_to_send = self.calc_components(selected_option)
             try:
                 self.main_window.components_mixer.set_component_type_and_value(selected_option, component_to_send,
-                                                                               self.index, self.size)
+                                                                               self.index, self.size, is_changing_region=False)
             except Exception as e:
                 print(f"Error in set_component_type_and_value: {e}")
                 logging.error(f"Error in set_component_type_and_value: {e}")
@@ -276,8 +276,8 @@ class ImageViewer(QtCore.QObject):
         region_type = self.region_combobox.currentText()
         selected_option = self.combo_box.currentText()
         if self.fourier is not None:
-            selected_region_components = self.fourier.region_mixer_output(region_type)
-            print(f"region change: {selected_region_components}")
+            selected_region_components = (self.fourier.zero_out_component
+                                          (region_type, self.main_window.components_mixer.original_inputs, self.size))
             self.main_window.components_mixer.set_component_type_and_value(selected_option, selected_region_components,
-                                                                       self.index, self.size)
+                                                                       self.index, self.size, is_changing_region=True)
 

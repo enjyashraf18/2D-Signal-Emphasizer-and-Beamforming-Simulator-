@@ -6,6 +6,7 @@ import logging
 logging.basicConfig(filemode="a", filename="Logging_Info.log",
                     format="(%(asctime)s) | %(name)s| %(levelname)s | => %(message)s", level=logging.INFO)
 
+
 class FourierComponents(QtCore.QObject):
     def __init__(self, original_image, ft_widget, ROI_rectangles):
         super().__init__()
@@ -47,19 +48,26 @@ class FourierComponents(QtCore.QObject):
             print(f"Error in getting FT components: {e}")
             logging.error(f"Error in getting FT components: {e}")
 
-    def zero_out_component(self, new_comp):
-        size = (250, 250)
-        if self.region_type == "Inner Region":
-            new_inner_comp = np.zeros(size)
-            # new_comp[:self.x_start, :] = 0
-            # new_comp[self.x_end:, :] = 0
-            # new_comp[:, :self.y_start] = 0
-            # new_comp[:, self.y_end:] = 0
-            new_inner_comp[self.x_start:self.x_end, self.y_start: self.y_end] = new_comp[self.x_start:self.x_end, self.y_start: self.y_end]
-            return new_inner_comp
-        elif self.region_type == "Outer Region":
-            new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
-            return new_comp
+    def zero_out_component(self, region_type, all_components, size):
+        # self.all_components = all_components.copy()
+        print(f"Zero Out Component Called")
+        self.region_type = region_type
+        result = None
+        for i in range(4):
+            print(f"ALL COMPONENTS at {i}: {all_components[i]}")
+            if self.region_type == "Inner Region":
+                result = np.zeros(size)
+                # new_comp[:self.x_start, :] = 0
+                # new_comp[self.x_end:, :] = 0
+                # new_comp[:, :self.y_start] = 0
+                # new_comp[:, self.y_end:] = 0
+                if result.shape != 0:
+                    result[self.x_start:self.x_end, self.y_start: self.y_end] = all_components[i][self.x_start:self.x_end, self.y_start: self.y_end]
+            elif self.region_type == "Outer Region":
+                result = all_components[i].copy()
+                if result.shape != 0:
+                    result[self.x_start:self.x_end, self.y_start: self.y_end] = 0
+        return result
 
     def region_mixer_output(self, region_type):
         self.region_type = region_type
