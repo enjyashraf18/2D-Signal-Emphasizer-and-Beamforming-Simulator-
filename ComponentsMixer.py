@@ -33,13 +33,14 @@ class ComponentsMixer:
         self.output_labels = output_labels
         self.progress_bar = progress_bar
         self.empty_count = 0
-        # self.region_combobox = region_combobox
-        # self.region_combobox.currentIndexChanged.connect(self.on_region_change)
+        self.region_combobox = region_combobox
+        self.region_combobox.currentIndexChanged.connect(self.on_region_change)
         self.thread = threading.Thread(target=self.update_progress_bar)
 
         self.increments = None
         self.current_step = None
         self.progress_timer = None
+        self.all_fouriers = [None for _ in range(4)]
 
     def set_component_type_and_value(self, component_type, ft_component, index, size, is_changing_region):
         logging.info(f"Setting Component Type: {component_type}")
@@ -49,6 +50,7 @@ class ComponentsMixer:
         self.components_types[index] = component_type
         self.input_values[index] = np.zeros(self.size)
         self.input_values[index] = ft_component
+        print(f"Component in set: {ft_component}")
         if not is_changing_region:  # I'm setting the original component
             logging.info("Setting original values of components.")
             self.original_inputs[index] = np.zeros(self.size)
@@ -177,6 +179,19 @@ class ComponentsMixer:
         ))
         channel.setAlignment(QtCore.Qt.AlignCenter)
 
+    def on_region_change(self):
+        region_type = self.region_combobox.currentText()
+        for i in range(4):
+            component_type = self.components_types[i]
+            if self.all_fouriers[i] is not None:
+                selected_region_components = self.all_fouriers[i].zero_out_component(region_type, self.original_inputs, self.size)
+                print(f"Component in on region: {selected_region_components}")
+                self.change_region(selected_region_components)
+
+    def change_region(self, region_components):
+        for i in range(4):
+            self.input_values[i] = region_components[i]
+        self.reconstruct_mixed_image()
 class ImageConverter:
     @staticmethod
     def numpy_to_pixmap(array):

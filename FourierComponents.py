@@ -51,6 +51,7 @@ class FourierComponents(QtCore.QObject):
         # self.all_components = all_components.copy()
         print(f"Zero Out Component Called")
         self.region_type = region_type
+        all_results = []
         result = None
         for i in range(4):
             # print(f"ALL COMPONENTS at {i}: {all_components[i]}")
@@ -62,13 +63,16 @@ class FourierComponents(QtCore.QObject):
                 # new_comp[:, self.y_end:] = 0
 
                 result[self.x_start:self.x_end, self.y_start: self.y_end] = all_components[i][self.x_start:self.x_end, self.y_start: self.y_end]
-                print(f"Inner Components: {result}")
+                all_results.append(result)
+                if i == 0:
+                    print(f"Component in zero out: {result}")
             elif self.region_type == "Outer Region":
                 result = all_components[i].copy()
-
                 result[self.x_start:self.x_end, self.y_start: self.y_end] = 0
-                print(f"Outer Components: {result}")
-        return result
+                all_results.append(result)
+                if i == 0:
+                    print(f"Component in zero out: {result}")
+        return all_results
 
     def region_mixer_output(self, region_type):
         self.region_type = region_type

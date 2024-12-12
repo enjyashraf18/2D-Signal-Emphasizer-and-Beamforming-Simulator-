@@ -34,8 +34,8 @@ class ImageViewer(QtCore.QObject):
         self.fourier = None
         self.height= None
         self.width = None
-        self.region_combobox = region_combobox
-        self.region_combobox.currentIndexChanged.connect(self.on_region_change)
+        # self.region_combobox = region_combobox
+        # self.region_combobox.currentIndexChanged.connect(self.on_region_change)
 
         self.img_FtComponent = img_FtComponent
         self.ref_img_FtComponent = img_FtComponent
@@ -89,6 +89,7 @@ class ImageViewer(QtCore.QObject):
                             self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
 
                         self.fourier = FourierComponents(self.image, self.ft_widget, self.ROI_rectangles)
+                        self.main_window.components_mixer.all_fouriers[self.index] = self.fourier
                         print(f"Fourier after upload:{self.fourier}")
                         self.height, self.width = self.image.shape
                         self.size = (self.width, self.height)
@@ -272,12 +273,14 @@ class ImageViewer(QtCore.QObject):
         if event.button() == Qt.LeftButton:
             self.last_mouse_pos = None
 
-    def on_region_change(self):
-        region_type = self.region_combobox.currentText()
-        selected_option = self.combo_box.currentText()
-        if self.fourier is not None:
-            selected_region_components = (self.fourier.zero_out_component
-                                          (region_type, self.main_window.components_mixer.original_inputs, self.size))
-            self.main_window.components_mixer.set_component_type_and_value(selected_option, selected_region_components,
-                                                                       self.index, self.size, is_changing_region=True)
-
+    # def on_region_change(self):
+    #     region_type = self.region_combobox.currentText()
+    #     selected_option = self.combo_box.currentText()
+    #     if self.fourier is not None:
+    #         selected_region_components = self.fourier.zero_out_component(region_type, self.main_window.components_mixer.original_inputs, self.size)
+    #         print(f"Component in on region: {selected_region_components}")
+    #         for i in range(4):
+    #             self.main_window.components_mixer.set_component_type_and_value(selected_option,
+    #                                                                            selected_region_components[i],
+    #                                                                            self.index, self.size,
+    #                                                                            is_changing_region=True)
