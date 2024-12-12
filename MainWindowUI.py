@@ -91,6 +91,11 @@ class MainWindow(QtWidgets.QMainWindow):
         # Progress Bar
         self.progress_bar = self.findChild(QProgressBar, "progress_bar")
 
+        # Mixer Region Selection
+        self.region_combobox = self.findChild(QComboBox, "mixer_region_combo_box")
+        self.region_combobox.addItem("Inner Region")
+        self.region_combobox.addItem("Outer Region")
+
         for i in range(1, 5):
             self.img_FtComponent = None
             detect_first_time = False
@@ -149,7 +154,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # Image Viewers
             image_label = self.findChild(QLabel, f"image_viewer_{i}")
-            image_events_handler = ImageViewer(image_label, ft_widget, mixer_combo_box, i-1, self, detect_first_time, self.img_FtComponent, self.ROI_rectangles)
+            image_events_handler = ImageViewer(image_label, ft_widget, mixer_combo_box, i-1, self, detect_first_time, self.img_FtComponent, self.ROI_rectangles, self.region_combobox)
             self.image_labels.append(image_label)
             self.image_event_handlers.append(image_events_handler)
             self.ft_widgets.append(ft_widget)
@@ -162,7 +167,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.output_labels.append(self.output_label_two)
 
             self.components_mixer = ComponentsMixer(self.mode, self.image_event_handlers, self.mixer_combo_boxes,
-                                                    self.output_labels, self.progress_bar)
+                                                    self.output_labels, self.progress_bar, self.region_combobox)
 
             # Sliders
             slider = self.findChild(QSlider, f"horizontalSlider_{i}")
@@ -172,7 +177,7 @@ class MainWindow(QtWidgets.QMainWindow):
             slider.valueChanged.connect(lambda value, index=i: self.components_mixer.change_weights(value, index-1))
             self.weight_sliders.append(slider)
 
-        # # Mode Selection
+        # Mode Selection
         self.real_img_mode = self.findChild(QRadioButton, "real_img_button")
         self.phase_mag_mode = self.findChild(QRadioButton, "mag_phase_button")
         self.real_img_mode.setChecked(True)  # default mode

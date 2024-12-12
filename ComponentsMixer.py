@@ -14,7 +14,8 @@ logging.basicConfig(filemode="a", filename="Logging_Info.log",
 
 
 class ComponentsMixer:
-    def __init__(self, mode, images, components_combo_boxes,  output_labels, progress_bar):
+    def __init__(self, mode, images, components_combo_boxes,  output_labels, progress_bar, region_combobox):
+        self.image_viewers = images
         self.images_components = [i.ft_component for i in images]  # list of ft components of images
         self.weights = [100]*4  # from sliders
         self.size = None
@@ -30,6 +31,8 @@ class ComponentsMixer:
         self.output_labels = output_labels
         self.progress_bar = progress_bar
         self.empty_count = 0
+        # self.region_combobox = region_combobox
+        # self.region_combobox.currentIndexChanged.connect(self.on_region_change)
         self.thread = threading.Thread(target=self.update_progress_bar)
 
         # self.components_combo_boxes = components_combo_boxes
@@ -166,40 +169,37 @@ class ComponentsMixer:
         time.sleep(1)
         self.progress_bar.setValue(0)
 
+    # def on_region_change(self):
+    #     self.fourier = FourierComponents()
 
-    # def on_combo_box_changed(self):
-    #     print("iam here")
-    #     if self.image is None:
-    #         return
-    #     selected_option = self.components_combo_boxes.currentText()
-    #     if selected_option == "None":
-    #         self.ft_widget.clear()
-    #         self.main_window.components_mixer.set_component_type_and_value(None, np.zeros((250, 250)),
-    #                                                                        self.index, True)
-    #         return
-    #     print(f"the selected option is {selected_option}")
-    #     self.ft_component = self.fourier.get_selected_ft_components(selected_option)
-    #     print(f'the ft component return has shape of {self.ft_component.shape}')
+    # def on_region_change(self):
+    #     region_type = self.region_combobox.currentText()
     #
-    #     if self.ft_component is not None:
-    #         height, width = self.ft_component.shape
-    #         bytes_per_line = width
-    #         q_image = QtGui.QImage(self.ft_component.data, width, height, bytes_per_line,
-    #                                QtGui.QImage.Format_Grayscale8)
-    #         pixmap = QPixmap.fromImage(q_image)
-    #         self.ft_widget.setPixmap(pixmap.scaled(
-    #             self.ft_widget.size(),
-    #             QtCore.Qt.KeepAspectRatio,
-    #             QtCore.Qt.SmoothTransformation
-    #         ))
-    #         print(f"Image {self.index}: {self.ft_component}")
-    #         component_to_send = self.calc_components(selected_option)
-    #         try:
-    #             self.set_component_type_and_value(selected_option, component_to_send,
-    #                                                                            self.index, True)
-    #         except Exception as e:
-    #             print(f"Error in set_component_type_and_value: {e}")
-    #         self.calc_components(selected_option)
+    #     if region_type == "Inner Region":
+    #         self.new_components = [np.zeros(self.size) for _ in range(4)]
+    #         for i in range(4):
+    #             self.new_components[self.x_start:self.x_end, self.y_start: self.y_end] = new_comp[self.x_start:self.x_end,
+    #                                                                                 self.y_start: self.y_end]
+    #
+    #     else:
+    #         self.new_components = self.input_values.copy()
+    #         new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
+    #         return new_comp
+    #
+    # def zero_out_component(self, new_comp):
+    #     size = (250, 250)
+    #     if self.region_type == "inner":
+    #         new_inner_comp = np.zeros(size)
+    #         # new_comp[:self.x_start, :] = 0
+    #         # new_comp[self.x_end:, :] = 0
+    #         # new_comp[:, :self.y_start] = 0
+    #         # new_comp[:, self.y_end:] = 0
+    #         new_inner_comp[self.x_start:self.x_end, self.y_start: self.y_end] = new_comp[self.x_start:self.x_end,
+    #                                                                             self.y_start: self.y_end]
+    #         return new_inner_comp
+    #     elif self.region_type == "outer":
+    #         new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
+    #     return new_comp
 
 class ImageConverter:
     @staticmethod

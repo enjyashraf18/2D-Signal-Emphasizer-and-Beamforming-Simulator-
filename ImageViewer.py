@@ -16,7 +16,7 @@ class ImageViewer(QtCore.QObject):
     smallest_size = None
     instances = []
 
-    def __init__(self, image_widget, ft_widget, combo_box, index, window, detect_first_time, img_FtComponent, ROI_rectangles):
+    def __init__(self, image_widget, ft_widget, combo_box, index, window, detect_first_time, img_FtComponent, ROI_rectangles, region_combobox):
         super().__init__()
         self.image_widget = image_widget
         self.combo_box = combo_box
@@ -34,6 +34,8 @@ class ImageViewer(QtCore.QObject):
         self.fourier = None
         self.height= None
         self.width = None
+        self.region_combobox = region_combobox
+        self.region_combobox.currentIndexChanged.connect(self.on_region_change)
 
         self.img_FtComponent = img_FtComponent
         self.ref_img_FtComponent = img_FtComponent
@@ -87,6 +89,7 @@ class ImageViewer(QtCore.QObject):
                             self.image = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
 
                         self.fourier = FourierComponents(self.image, self.ft_widget, self.ROI_rectangles)
+                        print(f"Fourier after upload:{self.fourier}")
                         self.height, self.width = self.image.shape
                         self.size = (self.width, self.height)
                         print(F"the image size before resizing is {self.size}")
@@ -268,3 +271,13 @@ class ImageViewer(QtCore.QObject):
     def mouseReleaseEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.last_mouse_pos = None
+
+    def on_region_change(self):
+        region_type = self.region_combobox.currentText()
+        selected_option = self.combo_box.currentText()
+        if self.fourier is not None:
+            selected_region_components = self.fourier.region_mixer_output(region_type)
+            print(f"region change: {selected_region_components}")
+            self.main_window.components_mixer.set_component_type_and_value(selected_option, selected_region_components,
+                                                                       self.index, self.size)
+

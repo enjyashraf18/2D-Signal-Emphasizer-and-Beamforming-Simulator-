@@ -47,38 +47,38 @@ class FourierComponents(QtCore.QObject):
             print(f"Error in getting FT components: {e}")
             logging.error(f"Error in getting FT components: {e}")
 
-
     def zero_out_component(self, new_comp):
-        if self.region_type == "inner":
-            new_comp[:self.x_start, :] = 0
-            new_comp[self.x_end:, :] = 0
-            new_comp[:, :self.y_start] = 0
-            new_comp[:, self.y_end:] = 0
-            return new_comp
-        elif self.region_type == "outer":
+        size = (250, 250)
+        if self.region_type == "Inner Region":
+            new_inner_comp = np.zeros(size)
+            # new_comp[:self.x_start, :] = 0
+            # new_comp[self.x_end:, :] = 0
+            # new_comp[:, :self.y_start] = 0
+            # new_comp[:, self.y_end:] = 0
+            new_inner_comp[self.x_start:self.x_end, self.y_start: self.y_end] = new_comp[self.x_start:self.x_end, self.y_start: self.y_end]
+            return new_inner_comp
+        elif self.region_type == "Outer Region":
             new_comp[self.x_start:self.x_end, self.y_start: self.y_end] = 0
             return new_comp
 
-    def region_mixer_output(self):
-        if self.region_type == "inner":
-            if self.selected == "FT real":
-                new_comp = self.real_comp.copy()
-                return self.zero_out_component(new_comp)
+    def region_mixer_output(self, region_type):
+        self.region_type = region_type
+        print(f"self.selected = {self.selected}")
+        if self.selected == "FT Real":
+            new_comp = self.real_comp.copy()
+            return self.zero_out_component(new_comp)
 
-            elif self.selected == "Ft imaginary":
-                new_comp = self.img_comp.copy()
-                return self.zero_out_component(new_comp)
+        elif self.selected == "FR Imaginary":
+            new_comp = self.img_comp.copy()
+            return self.zero_out_component(new_comp)
 
-            elif self.selected == "Ft Magnitude":
-                new_comp = self.mag_comp.copy()
-                return self.zero_out_component(new_comp)
+        elif self.selected == "FT Magnitude":
+            new_comp = self.mag_comp.copy()
+            return self.zero_out_component(new_comp)
 
-            elif self.selected == "Ft phase":
-                new_comp = self.phase_comp.copy()
-                return self.zero_out_component(new_comp)
-
-
-
+        elif self.selected == "FT Phase":
+            new_comp = self.phase_comp.copy()
+            return self.zero_out_component(new_comp)
 
     def draw_rectangle(self, detect_first_time):
         if not detect_first_time:
@@ -132,15 +132,12 @@ class FourierComponents(QtCore.QObject):
         print((self.x_start, self.x_end, self.y_start, self.y_end))
         return self.x_start, self.x_end,self.y_start, self.y_end
 
-
-
     def calculate_ft(self):
         if self.original_image.dtype != np.float32:
             self.original_image = np.float32(self.original_image)  # convert to 32-bit float to meet dft requ
         fourier = cv2.dft(self.original_image, flags=cv2.DFT_COMPLEX_OUTPUT)
         self.fourier_shift = np.fft.fftshift(fourier)
         return self.fourier_shift
-
 
     def get_ft_magnitude(self):
         magnitude = 20 * np.log(cv2.magnitude(self.fourier_shift[:, :, 0], self.fourier_shift[:, :, 1]) + 1)
