@@ -363,7 +363,7 @@ QSlider::handle:horizontal {
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="weight_1">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -461,7 +461,7 @@ border-color: transparent;</string>
           <string>%</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_13">
+        <widget class="QLabel" name="weight_2">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -567,7 +567,7 @@ border-color: transparent;</string>
           <string>Component 3:</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_18">
+        <widget class="QLabel" name="weight_3">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -624,7 +624,7 @@ border-color: transparent;</string>
           <string>%</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_20">
+        <widget class="QLabel" name="weight_4">
          <property name="geometry">
           <rect>
            <x>230</x>

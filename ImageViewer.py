@@ -98,6 +98,7 @@ class ImageViewer(QtCore.QObject):
                         self.notify_all_instances()
                         self.original_image = self.image.copy()
                         self.redisplay_image()
+                        # self.fourier.remove_rectangle()
                         # print(f"i set the image")
                 except Exception as e:
                     print(f"Error. Couldn't upload: {e}")

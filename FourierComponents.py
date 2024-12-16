@@ -20,7 +20,7 @@ class FourierComponents(QtCore.QObject):
         self.y_start = None
         self.x_end = None
         self.y_end = None
-        self.ROI_rectangles= ROI_rectangles
+        self.ROI_rectangles = ROI_rectangles
 
         self.selected = None
         self.region_type = "inner"
@@ -123,17 +123,22 @@ class FourierComponents(QtCore.QObject):
         self.ft_widget.scene().addItem(self.roi)
         self.roi.sigRegionChanged.connect(self.rect_boundries)
         self.ROI_rectangles.append(self.roi)
-        print(f"hena length el roi rects {len(self.ROI_rectangles)}")
+        # print(f"hena length el roi rects {len(self.ROI_rectangles)}")
+        logging.info(f"ROI Rectangles Length: {len(self.ROI_rectangles)}")
         return detect_first_time
 
     def remove_rectangle(self):
+        print("Rectange Removed")
         self.ft_widget.scene().removeItem(self.roi)
-        self.roi =None
+        self.roi = None
 
     def rect_boundries(self):
         if self.roi is None:
             return None
-        pos = self.roi.pos()
+        try:
+            pos = self.roi.pos()
+        except Exception as e:
+            print(e)
         size = self.roi.size()
         self.x_start = int(pos[0])
         self.y_start = int(pos[1])

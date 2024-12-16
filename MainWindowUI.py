@@ -16,7 +16,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__()
         uic.loadUi("Signal_Mixer.ui", self)
         self.setWindowTitle("Image Mixer")
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("Deliverables/icon.png"))
         self.setGeometry(450, 300, 1550, 950)
         self.central_widget = self.findChild(QWidget, "centralwidget")
         self.setCentralWidget(self.central_widget)
@@ -81,6 +81,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.mixer_combo_boxes = []
         self.output_labels = []
         self.sliders_values = [100]*4
+        self.slider_labels = []
         self.mode = "real_img"
 
         self.ROI_rectangles = []
@@ -169,13 +170,17 @@ class MainWindow(QtWidgets.QMainWindow):
             self.components_mixer = ComponentsMixer(self.mode, self.image_event_handlers, self.mixer_combo_boxes,
                                                     self.output_labels, self.progress_bar, self.region_combobox)
 
+            # Slider labels
+            slider_label = self.findChild(QLabel, f"weight_{i}")
+            self.slider_labels.append(slider_label)
             # Sliders
             slider = self.findChild(QSlider, f"horizontalSlider_{i}")
             slider.setRange(0, 100)
             slider.setValue(100)
             slider.setObjectName(f"slider_{i}")
-            slider.valueChanged.connect(lambda value, index=i: self.components_mixer.change_weights(value, index-1))
+            slider.valueChanged.connect(lambda value, index=i: self.update_sliders(value, index-1))
             self.weight_sliders.append(slider)
+
 
         # Mode Selection
         self.real_img_mode = self.findChild(QRadioButton, "real_img_button")
@@ -281,6 +286,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.components_mixer.set_output(1)
         else:
             self.components_mixer.set_output(2)
+
+    def update_sliders(self, value, index):
+        print(f"SLIDER INDEX IN UPDATE_SLIDERS: {index}")
+        self.slider_labels[index].setText(str(value))
+        self.components_mixer.change_weights(value, index)
 
 
 if __name__ == "__main__":

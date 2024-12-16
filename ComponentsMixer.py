@@ -74,10 +74,12 @@ class ComponentsMixer:
             print("Real/Imaginary Mode")
             logging.info("Mixing in Real/Imaginary Mode")
             for i in range(4):
+                if self.weights[i] == 0:
+                    continue
                 if self.components_types[i] == "FT Real":
-                    real += self.input_values[i] * (self.weights[i]/100)
+                    real += self.original_inputs[i] * (self.weights[i]/100)
                 elif self.components_types[i] == "FT Imaginary":
-                    imaginary += self.input_values[i] * (self.weights[i]/100)
+                    imaginary += self.original_inputs[i] * (self.weights[i]/100)
                 else:
                     self.empty_count += 1
             if self.empty_count == 4:
@@ -89,10 +91,12 @@ class ComponentsMixer:
             print("Magnitude/Phase Mode")
             logging.info("Mixing in Magnitude/Phase Mode")
             for i in range(4):
+                if self.weights[i] == 0:
+                    continue
                 if self.components_types[i] == "FT Magnitude":
-                    magnitude += self.input_values[i] * (self.weights[i]/100)
+                    magnitude += self.original_inputs[i] * (self.weights[i]/100)
                 elif self.components_types[i] == "FT Phase":
-                    phase = self.input_values[i] * (self.weights[i]/100)
+                    phase = self.original_inputs[i] * (self.weights[i]/100)
                 else:
                     self.empty_count += 1
             if self.empty_count == 4:
@@ -113,24 +117,13 @@ class ComponentsMixer:
         self.show_image(magnitude_pixmap)
 
     def change_weights(self, value, index):
-        self.weights[index] = value  # to be 0-based index
+        self.weights[index] = value
+        if value == 0:
+            logging.warning(f"Weight of image {index} = {value}")
+        else:
+            logging.info(f"Weight of image {index} = {value}")
         print(f"Weight at index {index} = {value}")
         self.reconstruct_mixed_image()
-
-    # def show_image(self, mixed_pixmap):
-    #     self.thread = threading.Thread(target=self.update_progress_bar)
-    #     self.thread.start()
-    #     if self.output_channel == 1:
-    #         channel = self.output_labels[0]
-    #     else:
-    #         channel = self.output_labels[1]
-    #     channel.clear()
-    #     channel.setPixmap(mixed_pixmap.scaled(
-    #         channel.size(),
-    #         QtCore.Qt.KeepAspectRatio,
-    #         QtCore.Qt.SmoothTransformation
-    #     ))
-    #     channel.setAlignment(QtCore.Qt.AlignCenter)
 
     def set_mode(self, mode):
         self.mode = mode
@@ -192,6 +185,8 @@ class ComponentsMixer:
         for i in range(4):
             self.input_values[i] = region_components[i]
         self.reconstruct_mixed_image()
+
+
 class ImageConverter:
     @staticmethod
     def numpy_to_pixmap(array):
