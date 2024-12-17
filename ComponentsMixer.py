@@ -77,9 +77,9 @@ class ComponentsMixer:
                 if self.weights[i] == 0:
                     continue
                 if self.components_types[i] == "FT Real":
-                    real += self.original_inputs[i] * (self.weights[i]/100)
+                    real += self.input_values[i] * (self.weights[i]/100)
                 elif self.components_types[i] == "FT Imaginary":
-                    imaginary += self.original_inputs[i] * (self.weights[i]/100)
+                    imaginary += self.input_values[i] * (self.weights[i]/100)
                 else:
                     self.empty_count += 1
             if self.empty_count == 4:
@@ -94,9 +94,9 @@ class ComponentsMixer:
                 if self.weights[i] == 0:
                     continue
                 if self.components_types[i] == "FT Magnitude":
-                    magnitude += self.original_inputs[i] * (self.weights[i]/100)
+                    magnitude += self.input_values[i] * (self.weights[i]/100)
                 elif self.components_types[i] == "FT Phase":
-                    phase = self.original_inputs[i] * (self.weights[i]/100)
+                    phase += self.input_values[i] * (self.weights[i]/100)
                 else:
                     self.empty_count += 1
             if self.empty_count == 4:
@@ -104,6 +104,20 @@ class ComponentsMixer:
                 self.output_labels[1].clear()
                 return
             fft_array = magnitude * np.exp(1j * phase)
+
+        if self.empty_count == 1:
+            real_2 = np.zeros(self.size)
+            imaginary_2 = np.zeros(self.size)
+            # real_components = []
+            # imaginary_components = []
+            for i in range(3):
+                real_2 += self.image_viewers[i].calc_components("FT Real") * (self.weights[i] / 100)
+                # real_comp = self.image_viewers[i].calc_components("FT Real")
+                # real_components.append(real_comp)
+                imaginary_2 += self.image_viewers[i].calc_components("FT Imaginary") * (self.weights[i] / 100)
+                # imaginary_components.append(imaginary_comp)
+
+            fft_array = real_2 + 1j * imaginary_2
 
         output_image_array = np.round(np.real(fftpack.ifft2(fftpack.ifftshift(fft_array))))
         # if self.mode == "real_img": # el 3aks

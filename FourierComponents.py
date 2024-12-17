@@ -54,7 +54,8 @@ class FourierComponents(QtCore.QObject):
         all_results = []
         result = None
         for i in range(4):
-            # print(f"ALL COMPONENTS at {i}: {all_components[i]}")
+            if i == 0:
+                print(f"ALL COMPONENTS at {i}: {all_components[i]}")
             if self.region_type == "Inner Region":
                 result = np.zeros(size)
                 # new_comp[:self.x_start, :] = 0
