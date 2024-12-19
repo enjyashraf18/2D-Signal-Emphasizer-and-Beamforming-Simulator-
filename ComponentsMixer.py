@@ -110,11 +110,16 @@ class ComponentsMixer:
             imaginary_2 = np.zeros(self.size)
             # real_components = []
             # imaginary_components = []
+            x, y = self.check_components()
+            real_2 += self.image_viewers[x].calc_components("FT Real") * (self.weights[x] / 100)
+            imaginary_2 += self.image_viewers[x].calc_components("FT Imaginary") * (self.weights[x] / 100)
             for i in range(3):
-                real_2 += self.image_viewers[i].calc_components("FT Real") * (self.weights[i] / 100)
+                if i == x or i == y:
+                    continue
+                real_2 += (self.image_viewers[i].calc_components("FT Real") * (self.weights[i] / 100))/8
                 # real_comp = self.image_viewers[i].calc_components("FT Real")
                 # real_components.append(real_comp)
-                imaginary_2 += self.image_viewers[i].calc_components("FT Imaginary") * (self.weights[i] / 100)
+                imaginary_2 += (self.image_viewers[i].calc_components("FT Imaginary") * (self.weights[i] / 100))/8
                 # imaginary_components.append(imaginary_comp)
 
             fft_array = real_2 + 1j * imaginary_2
@@ -152,7 +157,7 @@ class ComponentsMixer:
     def show_image(self, mixed_pixmap):
         self.progress_bar.setValue(0)
         self.progress_timer = QtCore.QTimer()
-        r = random.randint(1,2)
+        r = random.randint(1, 2)
         if r == 1:
             self.increments = [0, 25, 50, 75, 100]
         else:
@@ -199,6 +204,27 @@ class ComponentsMixer:
         for i in range(4):
             self.input_values[i] = region_components[i]
         self.reconstruct_mixed_image()
+
+    def check_components(self):
+        if self.image_viewers[0] == self.image_viewers[1]:
+            i = 0
+            j = 1
+        elif self.image_viewers[0] == self.image_viewers[2]:
+            i = 0
+            j = 2
+        elif self.image_viewers[0] == self.image_viewers[3]:
+            i = 0
+            j = 3
+        elif self.image_viewers[1] == self.image_viewers[2]:
+            i = 1
+            j = 2
+        elif self.image_viewers[1] == self.image_viewers[3]:
+            i = 1
+            j = 3
+        else:  # 2,3
+            i = 2
+            j = 3
+        return i, j
 
 
 class ImageConverter:

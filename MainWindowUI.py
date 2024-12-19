@@ -175,7 +175,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.slider_labels.append(slider_label)
             # Sliders
             slider = self.findChild(QSlider, f"horizontalSlider_{i}")
-            slider.setRange(0, 300)
+            slider.setRange(0, 100)
             slider.setValue(100)
             slider.setObjectName(f"slider_{i}")
             slider.valueChanged.connect(lambda value, index=i: self.update_sliders(value, index-1))
