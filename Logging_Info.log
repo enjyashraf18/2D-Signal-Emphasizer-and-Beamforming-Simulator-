@@ -20553,3 +20553,780 @@
 (2024-12-19 02:15:51,345) | root| INFO | => Weight of image 0 = 40
 (2024-12-19 02:15:51,348) | root| INFO | => Mixing in Magnitude/Phase Mode
 (2024-12-19 02:15:51,390) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:39:31,044) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:40:35,386) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:40:51,281) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:41:29,966) | root| INFO | => Selected component for image 0 is FT Real
+(2024-12-19 02:41:30,000) | root| INFO | => ROI Rectangles Length: 1
+(2024-12-19 02:41:30,004) | root| INFO | => Setting Component Type: FT Real
+(2024-12-19 02:41:30,005) | root| INFO | => Setting original values of components.
+(2024-12-19 02:41:30,005) | root| INFO | => Mixing in Real/Imaginary Mode
+(2024-12-19 02:41:30,025) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:41:33,818) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:41:33,821) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:41:33,821) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:41:35,827) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:41:35,852) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:41:35,853) | root| INFO | => Setting original values of components.
+(2024-12-19 02:41:35,853) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:41:35,867) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:41:37,898) | root| INFO | => Selected component for image 1 is FT Magnitude
+(2024-12-19 02:41:37,903) | root| INFO | => ROI Rectangles Length: 2
+(2024-12-19 02:41:37,908) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:41:37,908) | root| INFO | => Setting original values of components.
+(2024-12-19 02:41:37,909) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:41:37,923) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:41:39,908) | root| INFO | => Selected component for image 2 is FT Phase
+(2024-12-19 02:41:39,913) | root| INFO | => ROI Rectangles Length: 3
+(2024-12-19 02:41:39,916) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:41:39,917) | root| INFO | => Setting original values of components.
+(2024-12-19 02:41:39,917) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:41:39,929) | root| ERROR | => Error in set_component_type_and_value: ufunc 'add' did not contain a loop with signature matching types (dtype('<U7'), dtype('float64')) -> None
+(2024-12-19 02:42:19,454) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:42:37,367) | root| INFO | => Selected component for image 0 is FT Imaginary
+(2024-12-19 02:42:37,377) | root| INFO | => ROI Rectangles Length: 1
+(2024-12-19 02:42:37,384) | root| INFO | => Setting Component Type: FT Imaginary
+(2024-12-19 02:42:37,385) | root| INFO | => Setting original values of components.
+(2024-12-19 02:42:37,385) | root| INFO | => Mixing in Real/Imaginary Mode
+(2024-12-19 02:42:37,407) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:42:40,775) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:42:40,776) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:42:40,776) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:42:43,768) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:42:43,772) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:42:43,773) | root| INFO | => Setting original values of components.
+(2024-12-19 02:42:43,773) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:42:43,797) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:42:45,327) | root| INFO | => Selected component for image 1 is FT Phase
+(2024-12-19 02:42:45,334) | root| INFO | => ROI Rectangles Length: 2
+(2024-12-19 02:42:45,339) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:42:45,340) | root| INFO | => Setting original values of components.
+(2024-12-19 02:42:45,340) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:42:45,363) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:42:58,663) | root| INFO | => Selected component for image 3 is FT Magnitude
+(2024-12-19 02:42:58,667) | root| INFO | => ROI Rectangles Length: 3
+(2024-12-19 02:42:58,673) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:42:58,674) | root| INFO | => Setting original values of components.
+(2024-12-19 02:42:58,674) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:42:58,680) | root| ERROR | => Error in set_component_type_and_value: unsupported operand type(s) for *: 'NoneType' and 'float'
+(2024-12-19 02:43:40,794) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:44:12,980) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:44:12,982) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:12,983) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:44:14,843) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:44:14,849) | root| INFO | => ROI Rectangles Length: 1
+(2024-12-19 02:44:14,855) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:44:14,856) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:14,857) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:14,876) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:16,533) | root| INFO | => Selected component for image 1 is FT Magnitude
+(2024-12-19 02:44:16,537) | root| INFO | => ROI Rectangles Length: 2
+(2024-12-19 02:44:16,542) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:44:16,543) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:16,543) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:16,557) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:18,845) | root| INFO | => Selected component for image 2 is FT Phase
+(2024-12-19 02:44:18,853) | root| INFO | => ROI Rectangles Length: 3
+(2024-12-19 02:44:18,859) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:44:18,860) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:18,861) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:18,903) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:31,506) | root| INFO | => Selected component for image 2 is None
+(2024-12-19 02:44:31,506) | root| WARNING | => No component is selected for image 2.
+(2024-12-19 02:44:31,508) | root| INFO | => Setting Component Type: None
+(2024-12-19 02:44:31,509) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:31,510) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:31,531) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:33,013) | root| INFO | => Selected component for image 1 is None
+(2024-12-19 02:44:33,013) | root| WARNING | => No component is selected for image 1.
+(2024-12-19 02:44:33,015) | root| INFO | => Setting Component Type: None
+(2024-12-19 02:44:33,016) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:33,016) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:33,039) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:38,830) | root| INFO | => Selected component for image 1 is FT Magnitude
+(2024-12-19 02:44:38,834) | root| INFO | => ROI Rectangles Length: 4
+(2024-12-19 02:44:38,840) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:44:38,840) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:38,841) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:38,862) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:40,163) | root| INFO | => Selected component for image 2 is FT Phase
+(2024-12-19 02:44:40,171) | root| INFO | => ROI Rectangles Length: 5
+(2024-12-19 02:44:40,177) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:44:40,178) | root| INFO | => Setting original values of components.
+(2024-12-19 02:44:40,179) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:40,222) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:43,955) | root| INFO | => Weight of image 2 = 99
+(2024-12-19 02:44:43,956) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,004) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,006) | root| INFO | => Weight of image 2 = 94
+(2024-12-19 02:44:44,007) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,049) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,050) | root| INFO | => Weight of image 2 = 89
+(2024-12-19 02:44:44,051) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,092) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,094) | root| INFO | => Weight of image 2 = 86
+(2024-12-19 02:44:44,094) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,137) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,139) | root| INFO | => Weight of image 2 = 81
+(2024-12-19 02:44:44,139) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,183) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,184) | root| INFO | => Weight of image 2 = 74
+(2024-12-19 02:44:44,185) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,227) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,230) | root| INFO | => Weight of image 2 = 68
+(2024-12-19 02:44:44,231) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,274) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,275) | root| INFO | => Weight of image 2 = 65
+(2024-12-19 02:44:44,276) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,316) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,318) | root| INFO | => Weight of image 2 = 61
+(2024-12-19 02:44:44,318) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,359) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,361) | root| INFO | => Weight of image 2 = 58
+(2024-12-19 02:44:44,361) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,403) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,404) | root| INFO | => Weight of image 2 = 57
+(2024-12-19 02:44:44,405) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,449) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:44,451) | root| INFO | => Weight of image 2 = 55
+(2024-12-19 02:44:44,451) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:44,498) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:50,918) | root| INFO | => Weight of image 2 = 54
+(2024-12-19 02:44:50,919) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:50,974) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:50,976) | root| INFO | => Weight of image 2 = 51
+(2024-12-19 02:44:50,977) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,023) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,024) | root| INFO | => Weight of image 2 = 47
+(2024-12-19 02:44:51,026) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,068) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,078) | root| INFO | => Weight of image 2 = 46
+(2024-12-19 02:44:51,079) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,119) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,121) | root| INFO | => Weight of image 2 = 44
+(2024-12-19 02:44:51,121) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,166) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,167) | root| INFO | => Weight of image 2 = 43
+(2024-12-19 02:44:51,168) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,210) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,213) | root| INFO | => Weight of image 2 = 41
+(2024-12-19 02:44:51,214) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,257) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,259) | root| INFO | => Weight of image 2 = 38
+(2024-12-19 02:44:51,259) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,300) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,319) | root| INFO | => Weight of image 2 = 37
+(2024-12-19 02:44:51,321) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,370) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,386) | root| INFO | => Weight of image 2 = 36
+(2024-12-19 02:44:51,387) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,430) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:51,432) | root| INFO | => Weight of image 2 = 35
+(2024-12-19 02:44:51,433) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:51,476) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:52,369) | root| INFO | => Weight of image 2 = 34
+(2024-12-19 02:44:52,370) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:52,420) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:52,498) | root| INFO | => Weight of image 2 = 33
+(2024-12-19 02:44:52,499) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:52,554) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:52,928) | root| INFO | => Weight of image 2 = 32
+(2024-12-19 02:44:52,930) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:52,979) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:53,226) | root| INFO | => Weight of image 2 = 31
+(2024-12-19 02:44:53,228) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:53,277) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:44:53,637) | root| INFO | => Weight of image 2 = 30
+(2024-12-19 02:44:53,639) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:44:53,687) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,102) | root| INFO | => Weight of image 1 = 99
+(2024-12-19 02:45:00,104) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,160) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,161) | root| INFO | => Weight of image 1 = 86
+(2024-12-19 02:45:00,161) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,205) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,207) | root| INFO | => Weight of image 1 = 80
+(2024-12-19 02:45:00,207) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,253) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,255) | root| INFO | => Weight of image 1 = 76
+(2024-12-19 02:45:00,256) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,302) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,303) | root| INFO | => Weight of image 1 = 72
+(2024-12-19 02:45:00,304) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,353) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,354) | root| INFO | => Weight of image 1 = 66
+(2024-12-19 02:45:00,355) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,402) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,403) | root| INFO | => Weight of image 1 = 57
+(2024-12-19 02:45:00,404) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,450) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,452) | root| INFO | => Weight of image 1 = 53
+(2024-12-19 02:45:00,453) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,498) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,499) | root| INFO | => Weight of image 1 = 50
+(2024-12-19 02:45:00,500) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,545) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:00,556) | root| INFO | => Weight of image 1 = 49
+(2024-12-19 02:45:00,556) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:00,603) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:04,965) | root| INFO | => Weight of image 1 = 48
+(2024-12-19 02:45:04,966) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:05,013) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:05,104) | root| INFO | => Weight of image 1 = 47
+(2024-12-19 02:45:05,106) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:05,155) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:05,317) | root| INFO | => Weight of image 1 = 46
+(2024-12-19 02:45:05,318) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:05,360) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:05,527) | root| INFO | => Weight of image 1 = 45
+(2024-12-19 02:45:05,528) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:05,577) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:05,672) | root| INFO | => Weight of image 1 = 44
+(2024-12-19 02:45:05,673) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:05,733) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:05,990) | root| INFO | => Weight of image 1 = 43
+(2024-12-19 02:45:05,992) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:06,046) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:06,233) | root| INFO | => Weight of image 1 = 42
+(2024-12-19 02:45:06,234) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:06,275) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:06,435) | root| INFO | => Weight of image 1 = 41
+(2024-12-19 02:45:06,437) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:06,490) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:06,763) | root| INFO | => Weight of image 1 = 40
+(2024-12-19 02:45:06,764) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:06,813) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,039) | root| INFO | => Weight of image 0 = 98
+(2024-12-19 02:45:17,041) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,093) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,096) | root| INFO | => Weight of image 0 = 77
+(2024-12-19 02:45:17,096) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,140) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,141) | root| INFO | => Weight of image 0 = 69
+(2024-12-19 02:45:17,142) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,187) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,189) | root| INFO | => Weight of image 0 = 63
+(2024-12-19 02:45:17,190) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,234) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,235) | root| INFO | => Weight of image 0 = 55
+(2024-12-19 02:45:17,236) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,286) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,288) | root| INFO | => Weight of image 0 = 44
+(2024-12-19 02:45:17,289) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,337) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,339) | root| INFO | => Weight of image 0 = 32
+(2024-12-19 02:45:17,340) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,387) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,388) | root| INFO | => Weight of image 0 = 26
+(2024-12-19 02:45:17,389) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,436) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,437) | root| INFO | => Weight of image 0 = 22
+(2024-12-19 02:45:17,438) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,483) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,484) | root| INFO | => Weight of image 0 = 19
+(2024-12-19 02:45:17,485) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,534) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,537) | root| INFO | => Weight of image 0 = 18
+(2024-12-19 02:45:17,537) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,587) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,589) | root| INFO | => Weight of image 0 = 11
+(2024-12-19 02:45:17,590) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,635) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,637) | root| INFO | => Weight of image 0 = 9
+(2024-12-19 02:45:17,637) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,684) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,685) | root| INFO | => Weight of image 0 = 8
+(2024-12-19 02:45:17,686) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,731) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,733) | root| INFO | => Weight of image 0 = 6
+(2024-12-19 02:45:17,733) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,779) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:17,781) | root| INFO | => Weight of image 0 = 5
+(2024-12-19 02:45:17,782) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:17,829) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:21,699) | root| INFO | => Weight of image 0 = 7
+(2024-12-19 02:45:21,701) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:21,763) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:21,765) | root| INFO | => Weight of image 0 = 32
+(2024-12-19 02:45:21,766) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:21,813) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:21,815) | root| INFO | => Weight of image 0 = 41
+(2024-12-19 02:45:21,817) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:21,863) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:21,865) | root| INFO | => Weight of image 0 = 50
+(2024-12-19 02:45:21,866) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:21,916) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:21,919) | root| INFO | => Weight of image 0 = 71
+(2024-12-19 02:45:21,920) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:21,972) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:21,974) | root| INFO | => Weight of image 0 = 89
+(2024-12-19 02:45:21,975) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:22,025) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:22,027) | root| INFO | => Weight of image 0 = 100
+(2024-12-19 02:45:22,027) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:22,072) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:32,224) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:45:32,229) | root| INFO | => ROI Rectangles Length: 6
+(2024-12-19 02:45:32,236) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:45:32,236) | root| INFO | => Setting original values of components.
+(2024-12-19 02:45:32,237) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:32,281) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,197) | root| INFO | => Weight of image 0 = 99
+(2024-12-19 02:45:38,199) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,246) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,247) | root| INFO | => Weight of image 0 = 91
+(2024-12-19 02:45:38,248) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,293) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,294) | root| INFO | => Weight of image 0 = 82
+(2024-12-19 02:45:38,295) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,340) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,340) | root| INFO | => Weight of image 0 = 79
+(2024-12-19 02:45:38,341) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,383) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,384) | root| INFO | => Weight of image 0 = 76
+(2024-12-19 02:45:38,385) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,429) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,431) | root| INFO | => Weight of image 0 = 75
+(2024-12-19 02:45:38,431) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,475) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,476) | root| INFO | => Weight of image 0 = 74
+(2024-12-19 02:45:38,477) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,522) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,524) | root| INFO | => Weight of image 0 = 71
+(2024-12-19 02:45:38,524) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,566) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:38,567) | root| INFO | => Weight of image 0 = 69
+(2024-12-19 02:45:38,568) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:45:38,609) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:45:59,991) | root| INFO | => Weight of image 0 = 70
+(2024-12-19 02:45:59,993) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,043) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,044) | root| INFO | => Weight of image 0 = 79
+(2024-12-19 02:46:00,045) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,085) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,087) | root| INFO | => Weight of image 0 = 82
+(2024-12-19 02:46:00,087) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,129) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,131) | root| INFO | => Weight of image 0 = 84
+(2024-12-19 02:46:00,131) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,174) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,175) | root| INFO | => Weight of image 0 = 85
+(2024-12-19 02:46:00,177) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,219) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,221) | root| INFO | => Weight of image 0 = 86
+(2024-12-19 02:46:00,222) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,265) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,267) | root| INFO | => Weight of image 0 = 87
+(2024-12-19 02:46:00,268) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,312) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,315) | root| INFO | => Weight of image 0 = 88
+(2024-12-19 02:46:00,315) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,354) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,356) | root| INFO | => Weight of image 0 = 89
+(2024-12-19 02:46:00,357) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,398) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,399) | root| INFO | => Weight of image 0 = 93
+(2024-12-19 02:46:00,399) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,441) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,443) | root| INFO | => Weight of image 0 = 94
+(2024-12-19 02:46:00,444) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,490) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,492) | root| INFO | => Weight of image 0 = 95
+(2024-12-19 02:46:00,492) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,534) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,536) | root| INFO | => Weight of image 0 = 96
+(2024-12-19 02:46:00,537) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,577) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:00,579) | root| INFO | => Weight of image 0 = 100
+(2024-12-19 02:46:00,579) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:00,620) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:33,331) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:46:49,386) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:46:49,388) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:49,388) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:46:50,887) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:46:50,893) | root| INFO | => ROI Rectangles Length: 1
+(2024-12-19 02:46:50,899) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:46:50,900) | root| INFO | => Setting original values of components.
+(2024-12-19 02:46:50,901) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:50,919) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:53,602) | root| INFO | => Selected component for image 1 is FT Magnitude
+(2024-12-19 02:46:53,606) | root| INFO | => ROI Rectangles Length: 2
+(2024-12-19 02:46:53,610) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:46:53,611) | root| INFO | => Setting original values of components.
+(2024-12-19 02:46:53,611) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:53,626) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:46:55,294) | root| INFO | => Selected component for image 2 is FT Phase
+(2024-12-19 02:46:55,300) | root| INFO | => ROI Rectangles Length: 3
+(2024-12-19 02:46:55,305) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:46:55,306) | root| INFO | => Setting original values of components.
+(2024-12-19 02:46:55,306) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:46:55,353) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:23,948) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:47:35,514) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:47:35,518) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:35,518) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:47:38,271) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:47:38,275) | root| INFO | => ROI Rectangles Length: 1
+(2024-12-19 02:47:38,281) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:47:38,282) | root| INFO | => Setting original values of components.
+(2024-12-19 02:47:38,283) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:38,304) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:40,202) | root| INFO | => Selected component for image 1 is FT Phase
+(2024-12-19 02:47:40,209) | root| INFO | => ROI Rectangles Length: 2
+(2024-12-19 02:47:40,213) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:47:40,214) | root| INFO | => Setting original values of components.
+(2024-12-19 02:47:40,214) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:40,240) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:45,441) | root| INFO | => Selected component for image 2 is FT Phase
+(2024-12-19 02:47:45,445) | root| INFO | => ROI Rectangles Length: 3
+(2024-12-19 02:47:45,448) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:47:45,448) | root| INFO | => Setting original values of components.
+(2024-12-19 02:47:45,448) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:45,490) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:47,357) | root| INFO | => Selected component for image 1 is FT Magnitude
+(2024-12-19 02:47:47,364) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:47:47,366) | root| INFO | => Setting original values of components.
+(2024-12-19 02:47:47,366) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:47,413) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,498) | root| INFO | => Weight of image 0 = 98
+(2024-12-19 02:47:54,499) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,549) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,551) | root| INFO | => Weight of image 0 = 84
+(2024-12-19 02:47:54,552) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,592) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,595) | root| INFO | => Weight of image 0 = 80
+(2024-12-19 02:47:54,596) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,635) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,637) | root| INFO | => Weight of image 0 = 78
+(2024-12-19 02:47:54,638) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,679) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,681) | root| INFO | => Weight of image 0 = 75
+(2024-12-19 02:47:54,681) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,723) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,725) | root| INFO | => Weight of image 0 = 73
+(2024-12-19 02:47:54,726) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,775) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,778) | root| INFO | => Weight of image 0 = 71
+(2024-12-19 02:47:54,779) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,822) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,823) | root| INFO | => Weight of image 0 = 68
+(2024-12-19 02:47:54,824) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,868) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,870) | root| INFO | => Weight of image 0 = 65
+(2024-12-19 02:47:54,871) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,911) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,913) | root| INFO | => Weight of image 0 = 62
+(2024-12-19 02:47:54,913) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:54,959) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:54,961) | root| INFO | => Weight of image 0 = 59
+(2024-12-19 02:47:54,962) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,009) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,011) | root| INFO | => Weight of image 0 = 57
+(2024-12-19 02:47:55,012) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,055) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,057) | root| INFO | => Weight of image 0 = 52
+(2024-12-19 02:47:55,058) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,099) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,100) | root| INFO | => Weight of image 0 = 48
+(2024-12-19 02:47:55,101) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,140) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,141) | root| INFO | => Weight of image 0 = 46
+(2024-12-19 02:47:55,142) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,183) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,186) | root| INFO | => Weight of image 0 = 44
+(2024-12-19 02:47:55,187) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,230) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,232) | root| INFO | => Weight of image 0 = 43
+(2024-12-19 02:47:55,233) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,279) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:55,932) | root| INFO | => Weight of image 0 = 42
+(2024-12-19 02:47:55,934) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:55,982) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:56,062) | root| INFO | => Weight of image 0 = 41
+(2024-12-19 02:47:56,065) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:56,114) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:47:56,281) | root| INFO | => Weight of image 0 = 40
+(2024-12-19 02:47:56,283) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:47:56,336) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,227) | root| INFO | => Weight of image 0 = 38
+(2024-12-19 02:48:01,228) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,278) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,280) | root| INFO | => Weight of image 0 = 32
+(2024-12-19 02:48:01,281) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,323) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,325) | root| INFO | => Weight of image 0 = 28
+(2024-12-19 02:48:01,325) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,370) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,372) | root| INFO | => Weight of image 0 = 25
+(2024-12-19 02:48:01,373) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,416) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,417) | root| INFO | => Weight of image 0 = 23
+(2024-12-19 02:48:01,418) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,465) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,468) | root| INFO | => Weight of image 0 = 22
+(2024-12-19 02:48:01,468) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,514) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,516) | root| INFO | => Weight of image 0 = 21
+(2024-12-19 02:48:01,516) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,559) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,561) | root| INFO | => Weight of image 0 = 20
+(2024-12-19 02:48:01,562) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,604) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,605) | root| INFO | => Weight of image 0 = 19
+(2024-12-19 02:48:01,606) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,649) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:01,650) | root| INFO | => Weight of image 0 = 18
+(2024-12-19 02:48:01,651) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:01,695) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:02,807) | root| INFO | => Weight of image 0 = 17
+(2024-12-19 02:48:02,808) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:02,856) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:03,233) | root| INFO | => Weight of image 0 = 16
+(2024-12-19 02:48:03,235) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:03,286) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:03,643) | root| INFO | => Weight of image 0 = 15
+(2024-12-19 02:48:03,645) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:03,693) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:03,816) | root| INFO | => Weight of image 0 = 14
+(2024-12-19 02:48:03,817) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:03,865) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:03,948) | root| INFO | => Weight of image 0 = 13
+(2024-12-19 02:48:03,950) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:04,000) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:04,227) | root| INFO | => Weight of image 0 = 12
+(2024-12-19 02:48:04,229) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:04,282) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:04,886) | root| INFO | => Weight of image 0 = 13
+(2024-12-19 02:48:04,888) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:04,937) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:05,067) | root| INFO | => Weight of image 0 = 14
+(2024-12-19 02:48:05,069) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:05,117) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:05,211) | root| INFO | => Weight of image 0 = 15
+(2024-12-19 02:48:05,213) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:05,259) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:05,395) | root| INFO | => Weight of image 0 = 16
+(2024-12-19 02:48:05,396) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:05,437) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:05,819) | root| INFO | => Weight of image 0 = 17
+(2024-12-19 02:48:05,820) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:05,875) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:06,336) | root| INFO | => Weight of image 0 = 18
+(2024-12-19 02:48:06,338) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:06,392) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:06,492) | root| INFO | => Weight of image 0 = 19
+(2024-12-19 02:48:06,494) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:06,548) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:06,794) | root| INFO | => Weight of image 0 = 20
+(2024-12-19 02:48:06,796) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:06,838) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,225) | root| INFO | => Weight of image 2 = 99
+(2024-12-19 02:48:12,227) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,286) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,287) | root| INFO | => Weight of image 2 = 90
+(2024-12-19 02:48:12,288) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,330) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,332) | root| INFO | => Weight of image 2 = 89
+(2024-12-19 02:48:12,333) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,375) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,377) | root| INFO | => Weight of image 2 = 87
+(2024-12-19 02:48:12,378) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,421) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,423) | root| INFO | => Weight of image 2 = 83
+(2024-12-19 02:48:12,423) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,469) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,470) | root| INFO | => Weight of image 2 = 77
+(2024-12-19 02:48:12,471) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,518) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,519) | root| INFO | => Weight of image 2 = 69
+(2024-12-19 02:48:12,520) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,565) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,566) | root| INFO | => Weight of image 2 = 62
+(2024-12-19 02:48:12,567) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,606) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,608) | root| INFO | => Weight of image 2 = 56
+(2024-12-19 02:48:12,609) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,649) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,650) | root| INFO | => Weight of image 2 = 52
+(2024-12-19 02:48:12,651) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,696) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,697) | root| INFO | => Weight of image 2 = 49
+(2024-12-19 02:48:12,698) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,741) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:12,742) | root| INFO | => Weight of image 2 = 46
+(2024-12-19 02:48:12,744) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:12,786) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:13,301) | root| INFO | => Weight of image 2 = 45
+(2024-12-19 02:48:13,303) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:13,352) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:13,459) | root| INFO | => Weight of image 2 = 44
+(2024-12-19 02:48:13,461) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:13,505) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:13,624) | root| INFO | => Weight of image 2 = 43
+(2024-12-19 02:48:13,625) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:13,667) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:13,808) | root| INFO | => Weight of image 2 = 42
+(2024-12-19 02:48:13,809) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:13,858) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:13,973) | root| INFO | => Weight of image 2 = 41
+(2024-12-19 02:48:13,974) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:14,020) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:14,355) | root| INFO | => Weight of image 2 = 40
+(2024-12-19 02:48:14,357) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:14,402) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,354) | root| INFO | => Weight of image 2 = 41
+(2024-12-19 02:48:21,355) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,404) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,406) | root| INFO | => Weight of image 2 = 44
+(2024-12-19 02:48:21,407) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,448) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,450) | root| INFO | => Weight of image 2 = 48
+(2024-12-19 02:48:21,450) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,493) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,494) | root| INFO | => Weight of image 2 = 50
+(2024-12-19 02:48:21,495) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,537) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,547) | root| INFO | => Weight of image 2 = 51
+(2024-12-19 02:48:21,548) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,596) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,614) | root| INFO | => Weight of image 2 = 52
+(2024-12-19 02:48:21,615) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,659) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:21,661) | root| INFO | => Weight of image 2 = 54
+(2024-12-19 02:48:21,662) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:21,705) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:22,263) | root| INFO | => Weight of image 2 = 55
+(2024-12-19 02:48:22,264) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:22,318) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:22,395) | root| INFO | => Weight of image 2 = 56
+(2024-12-19 02:48:22,397) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:22,444) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:22,558) | root| INFO | => Weight of image 2 = 57
+(2024-12-19 02:48:22,559) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:22,603) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:22,715) | root| INFO | => Weight of image 2 = 58
+(2024-12-19 02:48:22,717) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:22,766) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:22,919) | root| INFO | => Weight of image 2 = 59
+(2024-12-19 02:48:22,920) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:22,967) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:23,143) | root| INFO | => Weight of image 2 = 60
+(2024-12-19 02:48:23,144) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:23,195) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:23,498) | root| INFO | => Weight of image 2 = 61
+(2024-12-19 02:48:23,499) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:23,545) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:23,771) | root| INFO | => Weight of image 2 = 62
+(2024-12-19 02:48:23,772) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:23,819) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:23,955) | root| INFO | => Weight of image 2 = 63
+(2024-12-19 02:48:23,957) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:24,012) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:24,114) | root| INFO | => Weight of image 2 = 64
+(2024-12-19 02:48:24,115) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:24,162) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:24,277) | root| INFO | => Weight of image 2 = 65
+(2024-12-19 02:48:24,279) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:24,331) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:24,455) | root| INFO | => Weight of image 2 = 66
+(2024-12-19 02:48:24,458) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:24,506) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:24,787) | root| INFO | => Weight of image 2 = 67
+(2024-12-19 02:48:24,788) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:24,835) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:25,051) | root| INFO | => Weight of image 2 = 68
+(2024-12-19 02:48:25,052) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:25,100) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:25,231) | root| INFO | => Weight of image 2 = 69
+(2024-12-19 02:48:25,233) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:25,282) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:48:25,435) | root| INFO | => Weight of image 2 = 70
+(2024-12-19 02:48:25,437) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:48:25,488) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:13,668) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:49:24,649) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:49:24,652) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:24,652) | root| INFO | => Mode Changed: Real/Imaginary
+(2024-12-19 02:49:26,149) | root| INFO | => Selected component for image 0 is FT Magnitude
+(2024-12-19 02:49:26,156) | root| INFO | => ROI Rectangles Length: 1
+(2024-12-19 02:49:26,164) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:49:26,165) | root| INFO | => Setting original values of components.
+(2024-12-19 02:49:26,165) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:26,183) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:27,942) | root| INFO | => Selected component for image 1 is FT Phase
+(2024-12-19 02:49:27,949) | root| INFO | => ROI Rectangles Length: 2
+(2024-12-19 02:49:27,954) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:49:27,954) | root| INFO | => Setting original values of components.
+(2024-12-19 02:49:27,954) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:27,980) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:29,944) | root| INFO | => Selected component for image 2 is FT Magnitude
+(2024-12-19 02:49:29,949) | root| INFO | => ROI Rectangles Length: 3
+(2024-12-19 02:49:29,954) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:49:29,954) | root| INFO | => Setting original values of components.
+(2024-12-19 02:49:29,956) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:29,997) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:32,533) | root| INFO | => Selected component for image 1 is FT Magnitude
+(2024-12-19 02:49:32,539) | root| INFO | => Setting Component Type: FT Magnitude
+(2024-12-19 02:49:32,541) | root| INFO | => Setting original values of components.
+(2024-12-19 02:49:32,541) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:32,585) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:34,435) | root| INFO | => Selected component for image 2 is FT Phase
+(2024-12-19 02:49:34,442) | root| INFO | => Setting Component Type: FT Phase
+(2024-12-19 02:49:34,443) | root| INFO | => Setting original values of components.
+(2024-12-19 02:49:34,444) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:34,483) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,563) | root| INFO | => Weight of image 0 = 98
+(2024-12-19 02:49:43,564) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,611) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,613) | root| INFO | => Weight of image 0 = 80
+(2024-12-19 02:49:43,614) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,655) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,658) | root| INFO | => Weight of image 0 = 69
+(2024-12-19 02:49:43,658) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,699) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,701) | root| INFO | => Weight of image 0 = 63
+(2024-12-19 02:49:43,702) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,741) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,743) | root| INFO | => Weight of image 0 = 59
+(2024-12-19 02:49:43,743) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,785) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,787) | root| INFO | => Weight of image 0 = 53
+(2024-12-19 02:49:43,789) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,832) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,834) | root| INFO | => Weight of image 0 = 47
+(2024-12-19 02:49:43,836) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,880) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,883) | root| INFO | => Weight of image 0 = 42
+(2024-12-19 02:49:43,884) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,922) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:43,924) | root| INFO | => Weight of image 0 = 41
+(2024-12-19 02:49:43,925) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:43,962) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:44,739) | root| INFO | => Weight of image 0 = 40
+(2024-12-19 02:49:44,740) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:44,782) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,083) | root| INFO | => Weight of image 2 = 98
+(2024-12-19 02:49:51,085) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,136) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,137) | root| INFO | => Weight of image 2 = 78
+(2024-12-19 02:49:51,138) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,177) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,178) | root| INFO | => Weight of image 2 = 70
+(2024-12-19 02:49:51,179) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,219) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,221) | root| INFO | => Weight of image 2 = 63
+(2024-12-19 02:49:51,221) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,260) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,260) | root| INFO | => Weight of image 2 = 54
+(2024-12-19 02:49:51,261) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,300) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,303) | root| INFO | => Weight of image 2 = 45
+(2024-12-19 02:49:51,303) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,350) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:51,352) | root| INFO | => Weight of image 2 = 41
+(2024-12-19 02:49:51,352) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:51,394) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.
+(2024-12-19 02:49:52,022) | root| INFO | => Weight of image 2 = 40
+(2024-12-19 02:49:52,024) | root| INFO | => Mixing in Magnitude/Phase Mode
+(2024-12-19 02:49:52,068) | root| INFO | => Image saved successfully as Reconstructed Images/reconstructed_image.png.

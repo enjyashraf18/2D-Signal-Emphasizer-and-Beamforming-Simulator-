@@ -183,7 +183,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
         # Mode Selection
-        self.real_img_mode = self.findChild(QRadioButton, "real_img_button")
+        self.real_img_mode = self.findChild(QRadioButton, "real_img_button")git
         self.phase_mag_mode = self.findChild(QRadioButton, "mag_phase_button")
         self.real_img_mode.setChecked(True)  # default mode
         self.update_combobox(True)

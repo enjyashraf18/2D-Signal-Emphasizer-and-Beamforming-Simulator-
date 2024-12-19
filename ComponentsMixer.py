@@ -111,12 +111,15 @@ class ComponentsMixer:
             # real_components = []
             # imaginary_components = []
             x, y = self.check_components()
-            real_2 += self.image_viewers[x].calc_components("FT Real") * (self.weights[x] / 100)
+            mean = 0
+            sigma = 0.1
+            gaussian_noise = np.random.normal(mean, sigma, real_2.shape)
+            real_2 += (self.image_viewers[x].calc_components("FT Real")+gaussian_noise) * (self.weights[x] / 100)
             imaginary_2 += self.image_viewers[x].calc_components("FT Imaginary") * (self.weights[x] / 100)
             for i in range(3):
                 if i == x or i == y:
                     continue
-                real_2 += (self.image_viewers[i].calc_components("FT Real") * (self.weights[i] / 100))/8
+                real_2 += ((self.image_viewers[i].calc_components("FT Real")) * (self.weights[i] / 100))/8
                 # real_comp = self.image_viewers[i].calc_components("FT Real")
                 # real_components.append(real_comp)
                 imaginary_2 += (self.image_viewers[i].calc_components("FT Imaginary") * (self.weights[i] / 100))/8
