@@ -68,6 +68,7 @@ class ComponentsMixer:
 
         magnitude = np.zeros(self.size)
         phase = np.zeros(self.size)
+        phases = []
 
         self.empty_count = 0
         if self.mode == "real_img":
@@ -97,35 +98,45 @@ class ComponentsMixer:
                     magnitude += self.input_values[i] * (self.weights[i]/100)
                 elif self.components_types[i] == "FT Phase":
                     phase += self.input_values[i] * (self.weights[i]/100)
+                    phases.append(self.input_values[i] * (self.weights[i]/100))
                 else:
                     self.empty_count += 1
             if self.empty_count == 4:
                 self.output_labels[0].clear()
                 self.output_labels[1].clear()
                 return
-            fft_array = magnitude * np.exp(1j * phase)
+            # NEW
+            phases_combined = np.zeros_like(phases[0], dtype=np.complex128)
+            for phase in phases:
+                phases_combined += np.exp(1j * phase)
 
-        if self.empty_count == 1:
-            real_2 = np.zeros(self.size)
-            imaginary_2 = np.zeros(self.size)
-            # real_components = []
-            # imaginary_components = []
-            x, y = self.check_components()
-            mean = 0
-            sigma = 0.1
-            gaussian_noise = np.random.normal(mean, sigma, real_2.shape)
-            real_2 += (self.image_viewers[x].calc_components("FT Real")+gaussian_noise) * (self.weights[x] / 100)
-            imaginary_2 += self.image_viewers[x].calc_components("FT Imaginary") * (self.weights[x] / 100)
-            for i in range(3):
-                if i == x or i == y:
-                    continue
-                real_2 += ((self.image_viewers[i].calc_components("FT Real")) * (self.weights[i] / 100))/8
-                # real_comp = self.image_viewers[i].calc_components("FT Real")
-                # real_components.append(real_comp)
-                imaginary_2 += (self.image_viewers[i].calc_components("FT Imaginary") * (self.weights[i] / 100))/8
-                # imaginary_components.append(imaginary_comp)
+            final_phase = np.angle(phases_combined)
 
-            fft_array = real_2 + 1j * imaginary_2
+                # UNCOMMENT THIS TO GO BACK
+            # fft_array = magnitude * np.exp(1j * phase)
+            fft_array = magnitude * np.exp(1j * final_phase)
+
+        # if self.empty_count == 1:
+        #     real_2 = np.zeros(self.size)
+        #     imaginary_2 = np.zeros(self.size)
+        #     # real_components = []
+        #     # imaginary_components = []
+        #     x, y = self.check_components()
+        #     mean = 0
+        #     sigma = 0.1
+        #     gaussian_noise = np.random.normal(mean, sigma, real_2.shape)
+        #     real_2 += (self.image_viewers[x].calc_components("FT Real")+gaussian_noise) * (self.weights[x] / 100)
+        #     imaginary_2 += self.image_viewers[x].calc_components("FT Imaginary") * (self.weights[x] / 100)
+        #     for i in range(3):
+        #         if i == x or i == y:
+        #             continue
+        #         real_2 += ((self.image_viewers[i].calc_components("FT Real")) * (self.weights[i] / 100))/8
+        #         # real_comp = self.image_viewers[i].calc_components("FT Real")
+        #         # real_components.append(real_comp)
+        #         imaginary_2 += (self.image_viewers[i].calc_components("FT Imaginary") * (self.weights[i] / 100))/8
+        #         # imaginary_components.append(imaginary_comp)
+        #
+        #     fft_array = real_2 + 1j * imaginary_2
 
         output_image_array = np.round(np.real(fftpack.ifft2(fftpack.ifftshift(fft_array))))
         # if self.mode == "real_img": # el 3aks
